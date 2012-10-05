@@ -1,0 +1,4 @@
+test:
+  adapter: postgresql
+  database: wmsb_test
+  username: postgres
