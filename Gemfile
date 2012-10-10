@@ -18,14 +18,26 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'haml_coffee_assets', '1.5.1'
 end
 
 gem 'jquery-rails'
+gem 'haml', '3.1.7'
+
+group :development do
+  gem 'thin'
+end
 
 group :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
   gem 'capybara-webkit', '0.12.1'
+end
+
+group :development, :test do
+  gem 'jasmine', '1.2.1'
+  gem 'jasminerice', '0.0.9'
+  gem 'guard-jasmine', '1.8.3'
 end
 
 # To use ActiveModel has_secure_password
