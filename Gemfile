@@ -18,9 +18,11 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+  gem 'haml_coffee_assets', '1.5.1'
 end
 
 gem 'jquery-rails'
+gem 'haml', '3.1.7'
 
 group :test do
   gem 'rspec-rails', '2.11.0'
