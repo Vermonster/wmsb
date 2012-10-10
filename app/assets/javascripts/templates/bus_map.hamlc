@@ -1,0 +1,4 @@
+%div
+  %a.back{href: '#'} Back
+%div.map
+  = @bus.get 'bus_no'
