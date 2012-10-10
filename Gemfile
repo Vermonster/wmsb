@@ -24,6 +24,10 @@ end
 gem 'jquery-rails'
 gem 'haml', '3.1.7'
 
+group :development do
+  gem 'thin'
+end
+
 group :test do
   gem 'rspec-rails', '2.11.0'
   gem 'capybara', '1.1.2'
