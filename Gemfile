@@ -30,6 +30,12 @@ group :test do
   gem 'capybara-webkit', '0.12.1'
 end
 
+group :development, :test do
+  gem 'jasmine', '1.2.1'
+  gem 'jasminerice', '0.0.9'
+  gem 'guard-jasmine', '1.8.3'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
