@@ -12,4 +12,12 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require json2
+//= require underscore-min
+//= require backbone-min
+//= require hamlcoffee
+//= require app_init
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./templates
