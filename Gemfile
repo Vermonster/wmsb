@@ -2,11 +2,6 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.8'
 
-# Bundle edge Rails instead:
-# gem 'rails', :git => 'git://github.com/rails/rails.git'
-
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -17,39 +12,24 @@ group :assets do
   # gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
-  gem 'haml_coffee_assets', '1.5.1'
+  gem 'haml_coffee_assets'
 end
 
 gem 'jquery-rails'
-gem 'haml', '3.1.7'
+gem 'haml'
 
 group :development do
   gem 'thin'
 end
 
 group :test do
-  gem 'rspec-rails', '2.11.0'
-  gem 'capybara', '1.1.2'
+  gem 'rspec-rails'
+  gem 'capybara'
   gem 'poltergeist'
 end
 
 group :development, :test do
-  gem 'jasmine', '1.2.1'
-  gem 'jasminerice', '0.0.9'
-  gem 'guard-jasmine', '1.8.3'
+  gem 'jasmine'
+  gem 'jasminerice'
+  gem 'guard-jasmine'
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'debugger'

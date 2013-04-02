@@ -176,17 +176,17 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  capybara (= 1.1.2)
+  capybara
   coffee-rails (~> 3.2.1)
-  guard-jasmine (= 1.8.3)
-  haml (= 3.1.7)
-  haml_coffee_assets (= 1.5.1)
-  jasmine (= 1.2.1)
-  jasminerice (= 0.0.9)
+  guard-jasmine
+  haml
+  haml_coffee_assets
+  jasmine
+  jasminerice
   jquery-rails
   poltergeist
   rails (= 3.2.8)
-  rspec-rails (= 2.11.0)
+  rspec-rails
   sass-rails (~> 3.2.3)
   thin
   uglifier (>= 1.0.3)
