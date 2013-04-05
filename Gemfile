@@ -1,6 +1,7 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'faraday'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -26,6 +27,7 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'poltergeist'
+  gem 'factory_girl_rails'
 end
 
 group :development, :test do
@@ -33,4 +35,5 @@ group :development, :test do
   gem 'jasmine'
   gem 'jasminerice'
   gem 'guard-jasmine'
+  gem 'pry-rails'
 end
