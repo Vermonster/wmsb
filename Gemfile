@@ -29,6 +29,7 @@ group :test do
 end
 
 group :development, :test do
+  gem 'foreman'
   gem 'jasmine'
   gem 'jasminerice'
   gem 'guard-jasmine'
