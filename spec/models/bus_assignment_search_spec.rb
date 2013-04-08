@@ -3,16 +3,31 @@ require 'spec_helper'
 describe BusAssignmentSearch do
   describe '.find_assignments' do
     it 'returns the assignments belonging to the family identified by the credentials provided' do
-      sample_bus_assignments_response = attributes_for(:bus_assignment_response).stringify_keys
+      bus_assignment = attributes_for(
+        :bus_assignment_response,
+        parentfirstname: 'Ned',
+        parentlastname: 'Stark',
+        studentfirstname: 'Arya',
+        studentlastname: 'Stark'
+      )
+
+      sample_bus_assignments_response = [bus_assignment.stringify_keys].to_json
 
       stub_bps_api do |request|
         request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"758294"'] }
-        request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, sample_bus_assignments_response.to_json] }
+        request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, sample_bus_assignments_response] }
       end
 
       search = BusAssignmentSearch.find_assignments(family_name: 'Stark', student_number: 1, date_of_birth: '10/30/2010')
 
-      search.assignments.should eq sample_bus_assignments_response
+      search.assignments.should be_instance_of Array
+
+      assignment = search.assignments.first
+
+      assignment['parentfirstname'].should eq 'Ned'
+      assignment['parentlastname'].should eq 'Stark'
+      assignment['studentfirstname'].should eq 'Arya'
+      assignment['studentlastname'].should eq 'Stark'
     end
 
     it 'validates all the required keys are supplied' do
