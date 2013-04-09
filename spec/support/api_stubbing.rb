@@ -1,5 +1,12 @@
 module ApiStubbing
-  def stub_bps_api(&block)
+  def stub_contact_id_api(&block)
+    stubs, test_connection = stub_connection(&block)
+
+    ContactId.connection = test_connection
+    stubs
+  end
+
+  def stub_assignments_api(&block)
     stubs, test_connection = stub_connection(&block)
 
     BusAssignmentSearch.connection = test_connection
