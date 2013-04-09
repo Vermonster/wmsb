@@ -28,6 +28,7 @@ group :test do
   gem 'capybara'
   gem 'poltergeist'
   gem 'factory_girl_rails'
+  gem 'timecop'
 end
 
 group :development, :test do
