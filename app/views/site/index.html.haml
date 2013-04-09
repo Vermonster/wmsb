@@ -2,3 +2,15 @@
   Wmsb.buses = new Wmsb.Collections.Buses(
   != @buses.to_json
   )
+
+= form_tag '/login' do
+  = label_tag :family_name
+  = text_field_tag :family_name
+
+  = label_tag :student_number
+  = text_field_tag :student_number
+
+  = label_tag :date_of_birth
+  = text_field_tag :date_of_birth
+
+  = button_tag 'Sign In'
