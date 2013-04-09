@@ -9,7 +9,7 @@ module ApiStubbing
   def stub_assignments_api(&block)
     stubs, test_connection = stub_connection(&block)
 
-    BusAssignmentSearch.connection = test_connection
+    AssignmentSearch.connection = test_connection
     stubs
   end
 

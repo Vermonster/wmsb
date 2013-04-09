@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe BusAssignmentSearch do
+describe AssignmentSearch do
   describe '.find_assignments' do
     it 'returns the assignments belonging to the family identified by the credentials provided' do
       bus_assignment = attributes_for(
@@ -17,16 +17,16 @@ describe BusAssignmentSearch do
         request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, sample_bus_assignments_response] }
       end
 
-      search = BusAssignmentSearch.find(123)
+      search = AssignmentSearch.find(123)
 
       search.assignments.should be_instance_of Array
 
       assignment = search.assignments.first
 
-      assignment['parentfirstname'].should eq 'Ned'
-      assignment['parentlastname'].should eq 'Stark'
-      assignment['studentfirstname'].should eq 'Arya'
-      assignment['studentlastname'].should eq 'Stark'
+      assignment.parent_first_name.should eq 'Ned'
+      assignment.parent_last_name.should eq 'Stark'
+      assignment.student_first_name.should eq 'Arya'
+      assignment.student_last_name.should eq 'Stark'
     end
 
     it 'handles errors retreiving assignments' do
@@ -34,7 +34,7 @@ describe BusAssignmentSearch do
         request.get('/bpswstr/Connect.svc/bus_assignments') { [500, {}, ''] }
       end
 
-      search = BusAssignmentSearch.find(123)
+      search = AssignmentSearch.find(123)
 
       search.assignments.should be_blank
       search.errors.should have_key :assignments

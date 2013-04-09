@@ -1,4 +1,4 @@
-class BusAssignmentSearch
+class AssignmentSearch
   extend ActiveModel::Naming
 
   class_attribute :connection, instance_writer: false
@@ -26,7 +26,9 @@ class BusAssignmentSearch
     )
 
     if response.success?
-      @assignments = JSON.parse(response.body)
+      @assignments = JSON.parse(response.body).map do |assignment|
+        BusAssignment.new(assignment)
+      end
     else
       @errors.add(:assignments, "could not be retreived (#{response.status})")
     end
