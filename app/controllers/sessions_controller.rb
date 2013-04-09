@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
       redirect_to :root, error: contact.errors.full_messages.first
     else
       session[:contact_id] = contact.contact_id
+      session[:signed_in_at] = Time.zone.now.to_s
       redirect_to :buses
     end
   end

@@ -39,6 +39,12 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.after :each do
+    Timecop.return
+  end
+
   config.include FactoryGirl::Syntax::Methods
   config.include ApiStubbing
+  config.include SessionSteps, type: :request
+  config.include DomElements, type: :request
 end
