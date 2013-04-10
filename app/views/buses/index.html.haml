@@ -1,3 +1,17 @@
 %ul.students
   - @assignments.each do |assignment|
     %li= assignment.student_name
+
+:javascript
+  function initialize() {
+    var center = new google.maps.LatLng(42, -71);
+    var map = new google.maps.Map(document.getElementById('map-canvas'), {
+      center: center,
+      zoom: 12,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    })
+  }
+
+  google.maps.event.addDomListener(window, 'load', initialize);
+
+#map-canvas
