@@ -19,4 +19,8 @@ class BusAssignment
       send("#{attr}=", value) if respond_to?(attr)
     end
   end
+
+  def student_name
+    "#{student_first_name} #{student_last_name}"
+  end
 end

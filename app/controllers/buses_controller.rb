@@ -1,6 +1,16 @@
 class BusesController < ApplicationController
   before_filter :authenticate!
 
+  def index
+    search = AssignmentSearch.find(session[:contact_id])
+
+    if search.errors.any?
+      flash.now.alert = search.errors.full_messages.first
+    end
+
+    @assignments = search.assignments
+  end
+
   private
 
   def authenticate!
