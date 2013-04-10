@@ -20,9 +20,9 @@ module Zonar
     response = connection.get('interface.php', params)
 
     if response.success?
-      Hash.from_xml(response.body)
-    else
-      {}
+      response_attributes = Hash.from_xml(response.body)
+      attributes = response_attributes['currentlocations']['asset']
+      BusLocation.new(attributes)
     end
   end
 

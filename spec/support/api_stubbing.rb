@@ -31,4 +31,14 @@ module ApiStubbing
 
     return [stubs, test_connection]
   end
+
+  def bus_location_response(attributes = {})
+    attributes.reverse_merge(
+      bus_id: 'BUS',
+      latitude: 42,
+      longitude: -71
+    )
+
+    ERB.new(File.read('spec/support/templates/zonar_bus_location.erb')).result(binding)
+  end
 end
