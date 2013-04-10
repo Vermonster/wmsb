@@ -6,6 +6,10 @@ feature 'Sessions' do
       request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"759393"'] }
     end
 
+    stub_assignments_api do |request|
+      request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, [].to_json] }
+    end
+
     visit root_path
 
     fill_in 'family_name', with: 'Stark'
