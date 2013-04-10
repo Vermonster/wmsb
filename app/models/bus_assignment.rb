@@ -14,6 +14,8 @@ class BusAssignment
   alias :student_first_name :studentfirstname
   alias :student_last_name :studentlastname
 
+  delegate :longitude, :latitude, to: :location
+
   def initialize(attributes)
     attributes.each do |attr, value|
       send("#{attr}=", value) if respond_to?(attr)
@@ -22,5 +24,9 @@ class BusAssignment
 
   def student_name
     "#{student_first_name} #{student_last_name}"
+  end
+
+  def location
+    @location ||= Zonar.bus_location(bus_number)
   end
 end
