@@ -1,4 +1,5 @@
 class BusesController < ApplicationController
+  respond_to :html, :json, only: :index
   before_filter :authenticate!
 
   def index
@@ -8,7 +9,8 @@ class BusesController < ApplicationController
       flash.now.alert = search.errors.full_messages.first
     end
 
-    @assignments = search.assignments
+    @assignments = ActiveModel::ArraySerializer.new(search.assignments)
+    respond_with(@assignments)
   end
 
   private

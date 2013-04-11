@@ -1,4 +1,5 @@
 Wmsb.Collections.Buses = Backbone.Collection.extend
+  url: '/buses'
   model: Wmsb.Models.Bus
 
   getByBusNo: (bus_no) ->
