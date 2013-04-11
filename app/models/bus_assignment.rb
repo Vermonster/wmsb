@@ -1,4 +1,6 @@
 class BusAssignment
+  include ActiveModel::SerializerSupport
+
   attr_accessor :BusNumber,
                 :StudentNo,
                 :parentfirstname,
