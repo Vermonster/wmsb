@@ -1,6 +1,5 @@
 module Zonar
   class << self
-    private
     attr_accessor :connection
   end
 

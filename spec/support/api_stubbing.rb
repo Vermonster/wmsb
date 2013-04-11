@@ -1,35 +1,44 @@
 module ApiStubbing
-  def stub_contact_id_api(&block)
-    stubs, test_connection = stub_connection(&block)
-
-    ContactId.connection = test_connection
-    stubs
+  class << self
+    attr_reader :zonar_stubs, :contact_id_stubs, :assignment_search_stubs
   end
 
-  def stub_assignments_api(&block)
-    stubs, test_connection = stub_connection(&block)
-
-    AssignmentSearch.connection = test_connection
-    stubs
+  def stub_zonar_api(response_body)
+    stub_api(@zonar_stubs, '/interface.php', response_body)
   end
 
-  def stub_zonar_api(&block)
-    stubs, test_connection = stub_connection(&block)
-
-    Zonar.stub(connection: test_connection)
-    stubs
+  def stub_contact_id_api(response_body)
+    stub_api(@contact_id_stubs, '/bpswstr/Connect.svc/aspen_contact_id', response_body)
   end
 
-  def stub_connection
-    stubs = Faraday::Adapter::Test::Stubs.new do |request|
-      yield request
-    end
+  def stub_assignments_api(response_body)
+    stub_api(@assignment_search_stubs, '/bpswstr/Connect.svc/bus_assignments', response_body)
+  end
 
+  def stub_api(stubs, url, response_body)
+    stubs.get(url) { response_body }
+  end
+
+  def setup_api_stubs!
+    @zonar_stubs             = Faraday::Adapter::Test::Stubs.new
+    @contact_id_stubs        = Faraday::Adapter::Test::Stubs.new
+    @assignment_search_stubs = Faraday::Adapter::Test::Stubs.new
+
+    stub_connection(Zonar, @zonar_stubs)
+    stub_connection(AssignmentSearch, @assignment_search_stubs)
+    stub_connection(ContactId, @contact_id_stubs)
+  end
+
+  def stub_connection(klass, stubs)
     test_connection = Faraday.new do |builder|
       builder.adapter :test, stubs
     end
 
-    return [stubs, test_connection]
+    klass.connection = test_connection
+  end
+
+  def teardown_api_stubs!
+    Zonar.connection = AssignmentSearch.connection = ContactId.connection = nil
   end
 
   def bus_location_response(attributes = {})

@@ -2,13 +2,8 @@ require 'spec_helper'
 
 feature 'Sessions' do
   scenario 'require student number, family name and date of birth' do
-    stub_contact_id_api do |request|
-      request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"759393"'] }
-    end
-
-    stub_assignments_api do |request|
-      request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, [].to_json] }
-    end
+    stub_contact_id_api [200, {}, '"759393"']
+    stub_assignments_api [200, {}, [].to_json]
 
     visit root_path
 

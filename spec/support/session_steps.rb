@@ -1,8 +1,7 @@
 module SessionSteps
   def sign_in
-    stub_contact_id_api do |request|
-      request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"759393"'] }
-    end
+    stub_contact_id_api [200, {}, '"759393"']
+    stub_assignments_api [200, {}, [].to_json]
 
     visit root_path
 

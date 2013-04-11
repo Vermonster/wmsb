@@ -39,8 +39,13 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
 
+  config.before :each do
+    setup_api_stubs!
+  end
+
   config.after :each do
     Timecop.return
+    teardown_api_stubs!
   end
 
   config.include FactoryGirl::Syntax::Methods

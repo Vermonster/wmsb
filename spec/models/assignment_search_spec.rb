@@ -10,12 +10,9 @@ describe AssignmentSearch do
         studentfirstname: 'Arya',
         studentlastname: 'Stark'
       )
-
       sample_bus_assignments_response = [bus_assignment.stringify_keys].to_json
 
-      stub_assignments_api do |request|
-        request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, sample_bus_assignments_response] }
-      end
+      stub_assignments_api [200, {}, sample_bus_assignments_response]
 
       search = AssignmentSearch.find(123)
 
@@ -30,9 +27,7 @@ describe AssignmentSearch do
     end
 
     it 'handles errors retreiving assignments' do
-      stub_assignments_api do |request|
-        request.get('/bpswstr/Connect.svc/bus_assignments') { [500, {}, ''] }
-      end
+      stub_assignments_api [500, {}, '']
 
       search = AssignmentSearch.find(123)
 

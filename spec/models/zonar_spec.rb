@@ -9,9 +9,7 @@ describe Zonar do
         longitude: 2
       )
 
-      stub_zonar_api do |request|
-        request.get('/interface.php') { [200, {}, sample_bus_location] }
-      end
+      stub_zonar_api [200, {}, sample_bus_location]
 
       location = Zonar.bus_location('BUSID')
 
@@ -21,9 +19,7 @@ describe Zonar do
     end
 
     it 'returns nil if failed' do
-      stub_zonar_api do |request|
-        request.get('/interface.php') { [400, {}, "{}"] }
-      end
+      stub_zonar_api [400, {}, "{}"]
 
       Zonar.bus_location('BUSID').should be_nil
     end

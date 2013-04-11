@@ -3,9 +3,7 @@ require 'spec_helper'
 describe ContactId do
   describe '.find' do
     it 'properly parses response' do
-      stub_contact_id_api do |request|
-        request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"758294"'] }
-      end
+      stub_contact_id_api [200, {}, '"758294"']
 
       contact_id = ContactId.find(family_name: 'Stark', student_number: 1, date_of_birth: '10/30/2010')
 
@@ -18,9 +16,7 @@ describe ContactId do
     end
 
     it 'handles errors obtaining aspen_contact_id' do
-      stub_contact_id_api do |request|
-        request.get('/bpswstr/Connect.svc/aspen_contact_id') { [400, {}, '"758294"'] }
-      end
+      stub_contact_id_api [400, {}, '"758294"']
 
       contact_id = ContactId.find(family_name: 'Stark', student_number: 1, date_of_birth: '10/30/2010')
 
@@ -29,9 +25,7 @@ describe ContactId do
     end
 
     it 'handles invalid (non-numeric) aspen_contact_ids' do
-      stub_contact_id_api do |request|
-        request.get('/bpswstr/Connect.svc/aspen_contact_id') { [200, {}, '"758a94"'] }
-      end
+      stub_contact_id_api [200, {}, '"758a94"']
 
       contact_id = ContactId.find(family_name: 'Stark', student_number: 1, date_of_birth: '10/30/2010')
 

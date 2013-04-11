@@ -19,9 +19,7 @@ feature 'View buses' do
       )
     ]
 
-    stub_assignments_api do |request|
-      request.get('/bpswstr/Connect.svc/bus_assignments') { [200, {}, assignments.to_json] }
-    end
+    stub_assignments_api [200, {}, assignments.to_json]
 
     sign_in
 
