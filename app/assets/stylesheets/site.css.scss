@@ -9,5 +9,16 @@
     width: 100px;
   }
 }
+#main-content {
+  #wmsb-logo {
+    background: url('/assets/logo.png') no-repeat;
+    width: 277px;
+    height: 77px;
+  }
+  #login {
+    background: $blue;
+    height: 400px;
+    width: 400px;
+    border-radius: 200px;
   }
 }
