@@ -11,7 +11,11 @@ en:
     error_notification:
       default_message: "Please review the problems below:"
     # Labels and hints examples
-    # labels:
+    labels:
+      session:
+        family_name: 'Student Last Name'
+        student_number: 'Student Number'
+        date_of_birth: 'Student Date of Birth'
     #   defaults:
     #     password: 'Password'
     #   user:
