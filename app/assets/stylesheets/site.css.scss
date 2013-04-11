@@ -1,0 +1,9 @@
+@import "variables";
+
+#header {
+  height: 75px;
+  background: $green;
+  #bps-logo {
+    background: url('images/bps_logo_horiz_reverse.png');
+  }
+}
