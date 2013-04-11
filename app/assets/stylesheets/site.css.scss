@@ -4,6 +4,10 @@
   height: 75px;
   background: $green;
   #bps-logo {
-    background: url('images/bps_logo_horiz_reverse.png');
+    background: url('/assets/bps_logo_horiz_reverse.png') no-repeat;
+    height: 59px;
+    width: 100px;
+  }
+}
   }
 }
