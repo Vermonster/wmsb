@@ -1,6 +1,7 @@
 Wmsb.Views.MapView = Backbone.View.extend
   initialize: (options) ->
     @listenTo @collection, 'reset', @updateMarker
+    _.bindAll this
 
   render: ->
     center = new google.maps.LatLng 42, -71
@@ -12,6 +13,12 @@ Wmsb.Views.MapView = Backbone.View.extend
 
     @updateMarker()
 
+    @intervalID = setInterval @refreshLocations, 20000
+
+  refreshLocations: ->
+    @collection.fetch
+      reset: true
+
   updateMarker: ->
     selected = @collection.selected()
 
@@ -22,8 +29,3 @@ Wmsb.Views.MapView = Backbone.View.extend
       position: selected.get('latLng')
       map: @map
       title: selected.get('student_name')
-
-    @timeout = setTimeout((=>
-      @collection.fetch
-        reset: true
-    ), 20000)
