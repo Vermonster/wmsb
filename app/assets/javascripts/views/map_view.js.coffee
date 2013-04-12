@@ -1,6 +1,5 @@
 Wmsb.Views.MapView = Backbone.View.extend
   initialize: (options) ->
-    @timeElapsed = 0
     @listenTo @collection, 'reset', @updateLocations
 
   render: ->
