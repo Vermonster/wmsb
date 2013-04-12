@@ -30,5 +30,25 @@
       position: relative;
       margin: 0 auto;
       top: -52px;
+      &:before {
+        position: absolute;
+        display: inline-block;
+        width: 0; 
+        height: 0; 
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-top: 100px solid $blue;
+        margin: 20px auto;
+        top: 360px;
+        left: 150px;
+        content: '';
+      }
+      &:after {
+        position: absolute;
+        display: inline-block;
+        border-bottom: none;
+        border-top: 100px solid $blue;
+        content: '';
+      }
   }
 }
