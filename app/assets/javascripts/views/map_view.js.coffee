@@ -12,16 +12,15 @@ Wmsb.Views.MapView = Backbone.View.extend
     _.bindAll this
 
   render: ->
-    center = new google.maps.LatLng 42, -71
     @map = new google.maps.Map @mapEl, {
-      center: center
+      center: @currentAssignment.get('latLng')
       zoom: 12
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
     @updateMarker()
 
-    @intervalID = setInterval @refreshLocations, 20000
+    @intervalID = setInterval @refreshLocations, 60000
 
   refreshLocations: ->
     @collection.fetch
