@@ -1,12 +1,14 @@
 @import "variables";
 
 #header {
-  height: 75px;
   background: $green;
+  overflow: hidden;
   #bps-logo {
     background: url('/assets/bps_logo_horiz_reverse.png') no-repeat;
     height: 59px;
     width: 100px;
+    float: right;
+    margin: 1em;
   }
 }
 #main-content {
