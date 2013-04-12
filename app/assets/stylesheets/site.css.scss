@@ -57,4 +57,27 @@
         content: '';
       }
   }
+  /*.markers {*/
+    /*#marker1 {*/
+      /*position: absolute;*/
+      /*width: 42px;*/
+      /*height: 49px;*/
+      /*background: url('/assets/marker1.png') no-repeat;*/
+      /*background-size: contain;*/
+      /*top: 300px;*/
+      /*left: 750px;*/
+    /*}*/
+    /*#marker2 {*/
+      /*@extend #marker1;*/
+      /*background: url('/assets/marker2.png') no-repeat;*/
+      /*top: 350px;*/
+      /*left: 100px;*/
+    /*}*/
+    /*#marker3 {*/
+      /*@extend #marker1;*/
+      /*background: url('/assets/marker3.png') no-repeat;*/
+      /*top: 500px;*/
+      /*left: 250px;*/
+    /*}*/
+  /*}*/
 }
