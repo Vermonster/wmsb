@@ -3,8 +3,9 @@ Wmsb.Views.MapView = Backbone.View.extend
     'click a.student-name': 'updateCurrentStudent'
 
   initialize: (options) ->
-    @currentAssignment = @collection.selected()
     @mapEl             = document.getElementById 'map-canvas'
+    @currentAssignment = @collection.find (assignment) ->
+      assignment.get('token') is cookie.get('current_assignment')
 
     @listenTo @collection, 'reset', @updateMarker
 
@@ -36,11 +37,9 @@ Wmsb.Views.MapView = Backbone.View.extend
       title: @currentAssignment.get 'student_name'
 
   updateCurrentStudent: (event) ->
-    @currentAssignment.set 'selected', false
-
     @currentAssignment = @collection.find (assignment) ->
       assignment.get('student_name') is event.target.text
 
-    @currentAssignment.set 'selected', true
+    cookie.set 'current_assignment', @currentAssignment.get('token')
 
     @updateMarker()
