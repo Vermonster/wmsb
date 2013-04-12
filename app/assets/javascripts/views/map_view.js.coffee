@@ -30,10 +30,13 @@ Wmsb.Views.MapView = Backbone.View.extend
     if @marker?
       @marker.setMap null
 
+    center = @currentAssignment.get 'latLng'
     @marker = new google.maps.Marker
-      position: @currentAssignment.get 'latLng'
+      position: center
       map: @map
       title: @currentAssignment.get 'student_name'
+
+    @map.setCenter center
 
   updateCurrentStudent: (event) ->
     @currentAssignment = @collection.find (assignment) ->
