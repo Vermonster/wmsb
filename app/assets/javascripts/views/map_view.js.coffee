@@ -1,6 +1,6 @@
 Wmsb.Views.MapView = Backbone.View.extend
   initialize: (options) ->
-    @listenTo @collection, 'reset', @updateLocations
+    @listenTo @collection, 'reset', @updateMarker
 
   render: ->
     center = new google.maps.LatLng 42, -71
@@ -10,25 +10,18 @@ Wmsb.Views.MapView = Backbone.View.extend
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
-    @insertMarkers()
+    @updateMarker()
 
-  updateLocations: ->
-    @markers.forEach (marker) =>
-      marker.setMap null
+  updateMarker: ->
+    selected = @collection.selected()
 
-    @markers.length = 0
+    if @marker?
+      @marker.setMap null
 
-    @insertMarkers()
-
-  insertMarkers: ->
-
-    @markers = @collection.map (location) =>
-      position = new google.maps.LatLng location.get('latitude'), location.get('longitude')
-
-      new google.maps.Marker
-        position: position
-        map: @map
-        title: location.get('student_name')
+    @marker = new google.maps.Marker
+      position: selected.get('latLng')
+      map: @map
+      title: selected.get('student_name')
 
     @timeout = setTimeout((=>
       @collection.fetch

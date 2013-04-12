@@ -1,5 +1,10 @@
 class BusAssignmentSerializer < ActiveModel::Serializer
   attributes :student_name,
              :latitude,
-             :longitude
+             :longitude,
+             :selected
+
+  def selected
+    options[:current_student_number] == object.student_number
+  end
 end

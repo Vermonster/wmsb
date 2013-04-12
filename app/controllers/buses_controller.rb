@@ -9,7 +9,7 @@ class BusesController < ApplicationController
       flash.now.alert = search.errors.full_messages.first
     end
 
-    @assignments = ActiveModel::ArraySerializer.new(search.assignments)
+    @assignments = ActiveModel::ArraySerializer.new(search.assignments, default_serializer_options)
     respond_with(@assignments)
   end
 
@@ -26,5 +26,9 @@ class BusesController < ApplicationController
 
   def signed_in_at
     @signed_in_at ||= Time.zone.parse(session[:signed_in_at])
+  end
+
+  def default_serializer_options
+    { current_student_number: session[:student_number] }
   end
 end
