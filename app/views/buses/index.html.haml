@@ -3,15 +3,15 @@
 
 :javascript
   function initialize() {
-    var tmp, locations, text, view;
+    var tmp, assignments, text, view;
 
     tmp = document.createElement('div');
     text = document.getElementById('locations').innerHTML
     tmp.innerHTML = text
 
-    locations = new Wmsb.Collections.Buses(JSON.parse(tmp.innerHTML));
+    assignments = new Wmsb.Collections.BusAssignments(JSON.parse(tmp.innerHTML));
     view = new Wmsb.Views.MapView({
-      collection: locations,
+      collection: assignments,
       el: document.getElementById('map-canvas-wrapper')
     });
 

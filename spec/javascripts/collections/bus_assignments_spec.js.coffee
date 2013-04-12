@@ -1,8 +1,8 @@
-describe 'Wmsb.Collections.Buses', ->
+describe 'Wmsb.Collections.BusAssignments', ->
   describe '#getByBusNo', ->
     beforeEach ->
       @bus = new Backbone.Model bus_no: 1
-      @buses = new Wmsb.Collections.Buses [@bus]
+      @buses = new Wmsb.Collections.BusAssignments [@bus]
 
     it 'is the member with the bus number', ->
       expect(@buses.getByBusNo 1).toBe @bus

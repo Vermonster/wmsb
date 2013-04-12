@@ -1,6 +1,6 @@
-Wmsb.Collections.Buses = Backbone.Collection.extend
+Wmsb.Collections.BusAssignments = Backbone.Collection.extend
   url: '/buses'
-  model: Wmsb.Models.Bus
+  model: Wmsb.Models.BusAssignment
 
   selected: ->
     @find (bus) ->

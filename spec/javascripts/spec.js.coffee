@@ -1,2 +1,2 @@
-#= require ../../app/assets/javascripts/application
+#= require application
 #= require_tree ./

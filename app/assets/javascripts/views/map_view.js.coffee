@@ -3,8 +3,8 @@ Wmsb.Views.MapView = Backbone.View.extend
     'click a.student-name': 'updateCurrentStudent'
 
   initialize: (options) ->
-    @currentStudent = @collection.selected()
-    @mapEl          = document.getElementById 'map-canvas'
+    @currentAssignment = @collection.selected()
+    @mapEl             = document.getElementById 'map-canvas'
 
     @listenTo @collection, 'reset', @updateMarker
 
@@ -31,15 +31,16 @@ Wmsb.Views.MapView = Backbone.View.extend
       @marker.setMap null
 
     @marker = new google.maps.Marker
-      position: @currentStudent.get 'latLng'
+      position: @currentAssignment.get 'latLng'
       map: @map
-      title: @currentStudent.get 'student_name'
+      title: @currentAssignment.get 'student_name'
 
   updateCurrentStudent: (event) ->
-    @currentStudent.set 'selected', false
-    @currentStudent = @collection.find (bus) ->
-      bus.get('student_name') is event.target.text
+    @currentAssignment.set 'selected', false
 
-    @currentStudent.set 'selected', true
+    @currentAssignment = @collection.find (assignment) ->
+      assignment.get('student_name') is event.target.text
+
+    @currentAssignment.set 'selected', true
 
     @updateMarker()
