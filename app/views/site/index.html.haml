@@ -6,8 +6,3 @@
       = f.input :student_number
       = f.input :date_of_birth
       = f.button :submit, value: 'Sign In'
-
-%script
-  Wmsb.buses = new Wmsb.Collections.Buses(
-  != @buses.to_json
-  )
