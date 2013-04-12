@@ -14,8 +14,8 @@
 //= require jquery_ujs
 //= require cookie
 //= require json2
-//= require underscore-min
-//= require backbone-min
+//= require underscore
+//= require backbone
 //= require hamlcoffee
 //= require app_init
 //= require_tree ./models
