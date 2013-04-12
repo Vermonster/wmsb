@@ -7,55 +7,97 @@
     width: 100px;
     float: right;
     margin: 1em;
+    top: -50px;
   }
 }
+
 #main-content {
-  #content-wrapper {
-    margin-top: -75px;
-    width: 100%;
-    top: -50px;
-    #wmsb-logo {
-      background: url('/assets/logo.png') no-repeat;
-      width: 337px;
-      height: 94px;
-      background-size: contain;
-      position: relative;
-      z-index: 999;
-      margin: 0 auto;
-      left: -10px;
   @include background(url('/assets/FPO-map.jpg') bottom left no-repeat);
   background-size: cover;
 }
 
+#content-wrapper {
+  #wmsb-logo {
+    background: url('/assets/logo.png') no-repeat;
+    width: 337px;
+    height: 94px;
+    background-size: contain;
+    position: relative;
+    z-index: 999;
+    margin: 0 auto;
+    left: -10px;
+    top: -70px;
+  }
+  #login {
+    background: $dk-blue;
+    height: 430px;
+    width: 430px;
+    border-radius: 215px;
+    position: relative;
+    margin: 0 auto;
+    top: -137px;
+    &:before {
+      position: absolute;
+      display: inline-block;
+      width: 0; 
+      height: 0; 
+      border-left: 50px solid transparent;
+      border-right: 50px solid transparent;
+      border-top: 100px solid $dk-blue;
+      margin: 20px auto;
+      top: 390px;
+      left: 167px;
+      content: '';
     }
-    #login {
-      background: $blue;
-      height: 400px;
-      width: 400px;
-      border-radius: 200px;
-      position: relative;
-      margin: 0 auto;
-      top: -52px;
-      &:before {
-        position: absolute;
-        display: inline-block;
-        width: 0; 
-        height: 0; 
-        border-left: 50px solid transparent;
-        border-right: 50px solid transparent;
-        border-top: 100px solid $blue;
-        margin: 20px auto;
-        top: 360px;
-        left: 150px;
-        content: '';
+    &:after {
+      position: absolute;
+      display: inline-block;
+      border-bottom: none;
+      border-top: 100px solid $dk-blue;
+      content: '';
+    }
+    form {
+      text-align: center;
+      margin-top: 100px;
+      position: absolute;
+      width: 100%;
+      label {
+        display: block;
+        .control-label {
+          width: 100%;
+        }
       }
-      &:after {
-        position: absolute;
-        display: inline-block;
-        border-bottom: none;
-        border-top: 100px solid $blue;
-        content: '';
+      input {
+        margin-bottom: 1em;
+        height: 20px;
+        width: 65%;
+        border-radius: 15px;
+        border: 2px $lt-blue solid;
+        background: $grey;
+        padding: .25em 1em;
+        color: $dk-blue;
+        font-family: $font-e;
+        font-size: 1em;
+        font-weight: 700;
+        &.btn {
+          border: none;
+          background: $green;
+          text-align: center;
+          font-size: 1em;
+          height: 35px;
+          width: 30%;
+          margin-top: 2em;
+          font-family: $font-e;
+          color: $dk-blue;
+          font-weight: 700;
+          padding-bottom: .35em;
+          &:hover {
+            background: $yellow;
+            cursor: pointer;
+          }
+        }
       }
+    }
   }
   /*.markers {*/
     /*#marker1 {*/
