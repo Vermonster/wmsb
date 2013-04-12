@@ -12,7 +12,7 @@
     locations = new Wmsb.Collections.Buses(JSON.parse(tmp.innerHTML));
     view = new Wmsb.Views.MapView({
       collection: locations,
-      el: document.getElementById('map-canvas')
+      el: document.getElementById('map-canvas-wrapper')
     });
 
     view.render();
@@ -20,4 +20,9 @@
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-#map-canvas
+#map-canvas-wrapper
+  %ul.students
+    - @assignments.object.each do |assignment|
+      %li
+        %a.student-name{ href: 'javascript:void(0)' }= assignment.student_name
+  #map-canvas

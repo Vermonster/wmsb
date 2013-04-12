@@ -1,11 +1,18 @@
 Wmsb.Views.MapView = Backbone.View.extend
+  events:
+    'click a.student-name': 'updateCurrentStudent'
+
   initialize: (options) ->
+    @currentStudent = @collection.selected()
+    @mapEl    = document.getElementById('map-canvas')
+
     @listenTo @collection, 'reset', @updateMarker
+
     _.bindAll this
 
   render: ->
     center = new google.maps.LatLng 42, -71
-    @map = new google.maps.Map this.el, {
+    @map = new google.maps.Map @mapEl, {
       center: center
       zoom: 12
       mapTypeId: google.maps.MapTypeId.ROADMAP
@@ -20,12 +27,19 @@ Wmsb.Views.MapView = Backbone.View.extend
       reset: true
 
   updateMarker: ->
-    selected = @collection.selected()
-
     if @marker?
       @marker.setMap null
 
     @marker = new google.maps.Marker
-      position: selected.get('latLng')
+      position: @currentStudent.get('latLng')
       map: @map
-      title: selected.get('student_name')
+      title: @currentStudent.get('student_name')
+
+  updateCurrentStudent: (event) ->
+    @currentStudent.set 'selected', false
+    @currentStudent = @collection.find (bus) ->
+      bus.get('student_name') is event.target.text
+
+    @currentStudent.set 'selected', true
+
+    @updateMarker()

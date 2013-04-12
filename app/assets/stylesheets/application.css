@@ -14,8 +14,12 @@
  *= require_tree .
  */
 
-html, body, #map-canvas {
+html, body, #map-canvas-wrapper {
   height: 100%;
+}
+
+#map-canvas {
+  height: 80%;
 }
 
 body {
