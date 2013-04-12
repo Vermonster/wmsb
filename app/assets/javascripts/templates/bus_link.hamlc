@@ -1,3 +1,0 @@
-%a.bus{href: '#', data-bus-no: @bus.get 'bus_no'}
-  = @bus.get 'name'
-
