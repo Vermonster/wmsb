@@ -5,7 +5,7 @@
       = simple_form_for 'session', url: '/login' do |f|
         = f.input :family_name
         = f.input :student_number
-        = f.input :date_of_birth
+        = f.input :date_of_birth, as: :date
         = f.button :submit, value: 'Sign In'
 %script
   Wmsb.buses = new Wmsb.Collections.Buses(
