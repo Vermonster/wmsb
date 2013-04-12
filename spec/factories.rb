@@ -13,7 +13,7 @@ FactoryGirl.define do
 
   factory :bus_assignment_response, class: Struct do
     BusNumber { generate(:string) }
-    StudentNumber { generate(:string) }
+    StudentNo { generate(:string) }
     days 'MTWHF'
     parentfirstname { generate(:string) }
     parentlastname { generate(:string) }
