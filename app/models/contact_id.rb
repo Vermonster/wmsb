@@ -11,6 +11,7 @@ class ContactId
   end
 
   def initialize(credentials)
+    credentials = credentials.symbolize_keys
     credentials.assert_valid_keys(:family_name, :student_number, :date_of_birth)
 
     @family_name    = credentials.fetch(:family_name)

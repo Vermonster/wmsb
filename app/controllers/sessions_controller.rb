@@ -1,16 +1,12 @@
 class SessionsController < ApplicationController
   def create
-    contact = ContactId.find(
-      family_name: params[:family_name],
-      student_number: params[:student_number],
-      date_of_birth: params[:date_of_birth]
-    )
+    contact = ContactId.find(params[:session])
 
     if contact.errors.any?
       redirect_to :root, alert: contact.errors.full_messages.first
     else
       cookies[:current_assignment] = {
-        value: Digest::SHA512.hexdigest(params[:student_number]),
+        value: Digest::SHA512.hexdigest(params[:session][:student_number]),
         secure: true,
         path: buses_path
       }
