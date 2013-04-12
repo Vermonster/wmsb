@@ -16,11 +16,13 @@
     top: -50px;
     #wmsb-logo {
       background: url('/assets/logo.png') no-repeat;
-      width: 277px;
-      height: 77px;
+      width: 337px;
+      height: 94px;
+      background-size: contain;
       position: relative;
       z-index: 999;
       margin: 0 auto;
+      left: -10px;
     }
     #login {
       background: $blue;
