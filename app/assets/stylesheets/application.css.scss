@@ -9,9 +9,9 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require_bourbon
  *= require base
  *= require site
- *= require_tree .
  */
 
 html, body, #map-canvas-wrapper {
