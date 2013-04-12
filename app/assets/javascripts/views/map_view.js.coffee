@@ -14,7 +14,7 @@ Wmsb.Views.MapView = Backbone.View.extend
   render: ->
     @map = new google.maps.Map @mapEl, {
       center: @currentAssignment.get('latLng')
-      zoom: 12
+      zoom: 14
       mapTypeId: google.maps.MapTypeId.ROADMAP
     }
 
