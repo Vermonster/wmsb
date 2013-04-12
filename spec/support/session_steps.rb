@@ -7,7 +7,9 @@ module SessionSteps
 
     fill_in 'session_family_name', with: 'Stark'
     fill_in 'session_student_number', with: '1'
-    fill_in 'session_date_of_birth', with: '10/30/2010'
+    select '2010', from: 'session_date_of_birth_1i'
+    select 'October', from: 'session_date_of_birth_2i'
+    select '30', from: 'session_date_of_birth_3i'
     click_button 'Sign In'
   end
 end
