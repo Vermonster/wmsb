@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     )
 
     if contact.errors.any?
-      redirect_to :root, error: contact.errors.full_messages.first
+      redirect_to :root, alert: contact.errors.full_messages.first
     else
       session[:student_number] = params[:student_number]
       session[:contact_id]     = contact.contact_id
