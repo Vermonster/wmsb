@@ -34,4 +34,6 @@ Wmsb::Application.configure do
 
   # Print deprecation notices to the stderr
   config.active_support.deprecation = :stderr
+
+  config.cache_store = :memory_store
 end
