@@ -16,10 +16,13 @@ module Zonar
       target: bus_id
     )
 
-    response = connection.get('interface.php', params)
+    response_body = Rails.cache.fetch(cache_key(bus_id), expires_in: 60, race_condition_ttl: 2) do
+      response = connection.get('interface.php', params)
+      response.success? ? response.body : nil
+    end
 
-    if response.success?
-      response_attributes = Hash.from_xml(response.body)
+    if !response_body.nil?
+      response_attributes = Hash.from_xml(response_body)
       attributes = response_attributes['currentlocations']['asset']
       BusLocation.new(attributes)
     end
@@ -31,5 +34,10 @@ module Zonar
       password: ENV['ZONAR_PASSWORD'],
     }
   end
-  private_class_method :default_params
+
+  def self.cache_key(bus_id)
+    "zonar.locations.#{bus_id}"
+  end
+
+  private_class_method :default_params, :cache_key
 end

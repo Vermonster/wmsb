@@ -22,6 +22,27 @@ describe Zonar do
       stub_zonar_api [400, {}, "{}"]
 
       Zonar.bus_location('BUSID').should be_nil
+
+      # Ensure cache miss
+      Rails.cache.fetch(Zonar.send(:cache_key, 'BUSID')).should be_nil
+    end
+
+    it 'caches bus locations for 60 seconds' do
+      location = bus_location_response(
+        bus_id: 'cacheme',
+        latitude: 42,
+        longitude: -71
+      )
+
+      stub_zonar_api [200, {}, location]
+      Zonar.connection.should_receive(:get).twice.and_call_original
+
+      Zonar.bus_location('cacheme')
+      Zonar.bus_location('cacheme')
+
+      Timecop.travel(60.seconds.from_now)
+
+      Zonar.bus_location('cacheme')
     end
   end
 end
