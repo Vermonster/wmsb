@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.13'
 gem 'faraday'
 gem 'active_model_serializers'
+gem 'unicorn'
 
 gem 'simple_form'
 
