@@ -16,27 +16,37 @@ class AssignmentSearch
   end
 
   def find
-    response = connection.get(
-      '/bpswstr/Connect.svc/bus_assignments',
-      aspen_contact_id: @aspen_contact_id,
-      TripFlag: trip_flag,
-      ForThisDate: current_date,
-      UserName: username,
-      Password: password
-    )
+    response_body =  Rails.cache.fetch(cache_key, expires_in: 1.week) do
+      response = connection.get(
+        '/bpswstr/Connect.svc/bus_assignments',
+        aspen_contact_id: @aspen_contact_id,
+        TripFlag: trip_flag,
+        ForThisDate: current_date,
+        UserName: username,
+        Password: password
+      )
 
-    if response.success?
-      @assignments = JSON.parse(response.body).map do |assignment|
+      if !response.success?
+        @errors.add(:assignments, "could not be retreived (#{response.status})")
+      end
+
+      response.success? ? response.body : nil
+    end
+
+    if !response_body.nil?
+      @assignments = JSON.parse(response_body).map do |assignment|
         BusAssignment.new(assignment)
       end
-    else
-      @errors.add(:assignments, "could not be retreived (#{response.status})")
     end
 
     return self
   end
 
   private
+
+  def cache_key
+    "bps.assignments.#{@aspen_contact_id}"
+  end
 
   def trip_flag
     # FIXME: This needs to be conditionalized based on time of day?

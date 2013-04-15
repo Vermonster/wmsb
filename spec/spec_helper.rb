@@ -41,6 +41,7 @@ RSpec.configure do |config|
 
   config.before :each do
     setup_api_stubs!
+    Rails.cache.clear
   end
 
   config.after :each do
