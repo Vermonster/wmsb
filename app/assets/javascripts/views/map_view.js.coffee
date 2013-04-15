@@ -2,6 +2,19 @@ Wmsb.Views.MapView = Backbone.View.extend
   events:
     'click a.student-name': 'updateCurrentStudent'
 
+  styles: [
+    stylers: [
+      { "saturation": -30 }
+      { "lightness": 31 }
+      { "weight": 0.4 }
+      { "gamma": 0.78 }
+      { "hue": "#3b97d3" }
+    ]
+  ]
+
+  styledMap: ->
+    new google.maps.StyledMapType @styles, name: 'Boston Public Schools'
+
   initialize: (options) ->
     @mapEl             = document.getElementById 'map-canvas'
     @currentAssignment = @collection.find (assignment) ->
@@ -15,8 +28,12 @@ Wmsb.Views.MapView = Backbone.View.extend
     @map = new google.maps.Map @mapEl, {
       center: @currentAssignment.get('latLng')
       zoom: 14
-      mapTypeId: google.maps.MapTypeId.ROADMAP
+      mapTypeControlOptions:
+        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
     }
+
+    @map.mapTypes.set 'map_style', @styledMap()
+    @map.setMapTypeId 'map_style'
 
     @updateMarker()
 
