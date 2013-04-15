@@ -33,7 +33,6 @@ group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'poltergeist'
-  gem 'factory_girl_rails'
   gem 'timecop'
 end
 

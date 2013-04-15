@@ -49,7 +49,6 @@ RSpec.configure do |config|
     teardown_api_stubs!
   end
 
-  config.include FactoryGirl::Syntax::Methods
   config.include ApiStubbing
   config.include SessionSteps, type: :request
   config.include DomElements, type: :request

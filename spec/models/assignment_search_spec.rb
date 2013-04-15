@@ -3,8 +3,7 @@ require 'spec_helper'
 describe AssignmentSearch do
   describe '.find_assignments' do
     let(:sample_bus_assignments_response) do
-      bus_assignment = attributes_for(
-        :bus_assignment_response,
+      bus_assignment = bus_assignments_response(
         parentfirstname: 'Ned',
         parentlastname: 'Stark',
         studentfirstname: 'Arya',

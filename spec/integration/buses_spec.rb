@@ -3,16 +3,14 @@ require 'spec_helper'
 feature 'View buses' do
   scenario 'lists student names' do
     assignments = [
-      attributes_for(
-        :bus_assignment_response,
+      bus_assignments_response(
         BusNumber: '1',
         parentfirstname: 'Ned',
         parentlastname: 'Stark',
         studentfirstname: 'Aria',
         studentlastname: 'Stark'
       ),
-      attributes_for(
-        :bus_assignment_response,
+      bus_assignments_response(
         BusNumber: '2',
         parentfirstname: 'Ned',
         parentlastname: 'Stark',

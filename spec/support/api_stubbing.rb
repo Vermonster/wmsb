@@ -41,6 +41,18 @@ module ApiStubbing
     Zonar.connection = AssignmentSearch.connection = ContactId.connection = nil
   end
 
+  def bus_assignments_response(attributes = {})
+    attributes.reverse_merge(
+      BusNumber: 'BUSA',
+      parentfirstname: 'John',
+      parentlastname: 'Smith',
+      studentfirstname: 'Joseph',
+      studentlastname: 'Smith',
+      days: 'MTWHF',
+      StudentNo: '7948508742'
+    )
+  end
+
   def bus_location_response(attributes = {})
     attributes.reverse_merge(
       bus_id: 'BUS',
