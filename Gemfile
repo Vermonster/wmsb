@@ -21,6 +21,9 @@ group :assets do
   gem 'jquery-rails'
 end
 
+group :production do
+  gem 'memcachier'
+end
 
 group :development do
   gem 'thin'
