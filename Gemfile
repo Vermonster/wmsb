@@ -1,14 +1,13 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
+gem 'haml'
 gem 'faraday'
 gem 'active_model_serializers'
 gem 'unicorn'
 gem 'dalli'
 gem 'simple_form'
 
-# Gems used only for assets and not required
-# in production environments by default.
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
@@ -19,10 +18,9 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
   gem 'haml_coffee_assets'
+  gem 'jquery-rails'
 end
 
-gem 'jquery-rails'
-gem 'haml'
 
 group :development do
   gem 'thin'
