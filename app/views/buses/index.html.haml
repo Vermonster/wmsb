@@ -1,5 +1,4 @@
-%select{name: 'student_name'}
-  %option{value: 'Student Name'}Student Name
+#header
 
 %script#locations{ type: 'text/json' }
   #{ @assignments.to_json }
@@ -15,7 +14,7 @@
     assignments = new Wmsb.Collections.BusAssignments(JSON.parse(tmp.innerHTML));
     view = new Wmsb.Views.MapView({
       collection: assignments,
-      el: document.getElementById('map-canvas-wrapper')
+      el: document.getElementsByTagName('body')
     });
 
     view.render();
@@ -23,11 +22,4 @@
 
   google.maps.event.addDomListener(window, 'load', initialize);
 
-#map-canvas-wrapper
-  
-  -#%ul.students
-    -#- @assignments.object.each do |assignment|
-      -#%li
-        -#%a.student-name{ href: 'javascript:void(0)' }= assignment.student_name
-      
-  #map-canvas
+#map-canvas

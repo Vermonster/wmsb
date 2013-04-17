@@ -1,3 +1,29 @@
+template =
+  studentList: _.template """
+<div id="bus-view">
+  <div class="student">
+    <h4>Change student:</h4>
+    <select name="student_name">
+      <option value="Student Name">Student Name</option>
+    </select>
+  </div>
+  <div class="time">
+    <h4>Last updated:</h4>
+    <h2><%= lastUpdatedAt %></h2>
+  </div>
+</div>
+  """
+
+StudentList = Backbone.View.extend
+  initialize: (options) ->
+    @currentAssignment = options.currentAssignment
+
+  render: ->
+    markup = template.studentList
+      lastUpdatedAt: @currentAssignment.get('last_updated_at')
+
+    @$el.html markup
+
 Wmsb.Views.MapView = Backbone.View.extend
   events:
     'click a.student-name': 'updateCurrentStudent'
@@ -25,6 +51,12 @@ Wmsb.Views.MapView = Backbone.View.extend
     _.bindAll this
 
   render: ->
+    @studentList = new StudentList
+      el: document.getElementById 'header'
+      collection: @collection
+      currentAssignment: @currentAssignment
+    @studentList.render()
+    
     @map = new google.maps.Map @mapEl, {
       center: @currentAssignment.get('latLng')
       zoom: 14
