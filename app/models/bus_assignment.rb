@@ -16,7 +16,7 @@ class BusAssignment
   alias :student_first_name :studentfirstname
   alias :student_last_name :studentlastname
 
-  delegate :longitude, :latitude, to: :location
+  delegate :longitude, :latitude, :last_updated_at, to: :location
 
   def initialize(attributes)
     attributes.each do |attr, value|
