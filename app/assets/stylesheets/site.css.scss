@@ -1,8 +1,7 @@
 #header {
   background: $green;
   overflow: hidden;
-  height: 60px;
-  padding: 1em;
+  height: 80px;
   #bps-logo {
     background: image-url('bps_logo_horiz_reverse.png') no-repeat;
     height: 59px;
@@ -125,4 +124,23 @@
       /*left: 250px;*/
     /*}*/
   /*}*/
+}
+#bus-view {
+  overflow: hidden;
+  .student, .time {
+    margin-top: 1em;
+    padding-bottom: .5em;
+    width: 15%;
+    float: left;
+    border-right: 2px $grey solid;
+    padding-left: 3%;
+    h4, h2 {
+      display: block;
+      margin: 0 0 .25em;
+    }
+  }
+}
+
+.selected-student {
+  @extend h2;
 }
