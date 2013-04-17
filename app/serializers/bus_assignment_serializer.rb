@@ -8,4 +8,8 @@ class BusAssignmentSerializer < ActiveModel::Serializer
   def token
     Digest::SHA512.hexdigest(object.student_number)
   end
+
+  def last_updated_at
+    object.last_updated_at.strftime('%l:%M:%S %P')
+  end
 end
