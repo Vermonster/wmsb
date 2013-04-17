@@ -3,9 +3,9 @@ template =
 <div id="bus-view">
   <div class="student">
     <h4>Change student:</h4>
-    <select name="student_name">
-      <option value="Student Name">Student Name</option>
-    </select>
+    <div class="selected-student">
+      <%= currentStudentName %>
+    </div>
   </div>
   <div class="time">
     <h4>Last updated:</h4>
@@ -21,6 +21,7 @@ StudentList = Backbone.View.extend
   render: ->
     markup = template.studentList
       lastUpdatedAt: @currentAssignment.get('last_updated_at')
+      currentStudentName: @currentAssignment.get('student_name')
 
     @$el.html markup
 
