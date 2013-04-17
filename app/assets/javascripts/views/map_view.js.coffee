@@ -62,7 +62,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       center: @currentAssignment.get('latLng')
       zoom: 14
       mapTypeControlOptions:
-        mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'map_style']
+        mapTypeIds: ['map_style']
     }
 
     @map.mapTypes.set 'map_style', @styledMap()
