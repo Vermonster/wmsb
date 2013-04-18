@@ -6,7 +6,7 @@ templates =
     <div class="selected-student">
       <%= currentStudentName %>
     </div>
-    <ul class="student-names">
+    <ul class="student-names closed">
       <% collection.each(function(assignment) { %>
         <li><%= assignment.get("student_name") %></li>
       <% }) %>
@@ -21,7 +21,7 @@ templates =
 
 Wmsb.Views.MapView = Backbone.View.extend
   events:
-    'click a.student-name': 'updateCurrentStudent'
+    'click .selected-student': 'toggleStudentList'
 
   styles: [
     stylers: [
@@ -89,6 +89,9 @@ Wmsb.Views.MapView = Backbone.View.extend
       position: center
       map: @map
       title: @currentAssignment.get 'student_name'
+
+  toggleStudentList: ->
+    @$('.student-names').toggleClass 'closed'
 
   refreshLocations: ->
     @collection.fetch reset: true
