@@ -16,7 +16,7 @@ class BusesController < ApplicationController
   private
 
   def authenticate!
-    if Time.zone.now - signed_in_at > 4.hours
+    if session[:contact_id] && Time.zone.now - signed_in_at > 4.hours
       cookies.delete(:current_assignment)
       session.delete(:contact_id)
 

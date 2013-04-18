@@ -10,6 +10,11 @@ feature 'Sessions' do
 
     current_path.should eq root_path
     notifications.should have_content 'You have been logged out'
+
+    visit buses_path
+
+    current_path.should eq root_path
+    notifications.should have_content 'You need to sign in first'
   end
 
   scenario 'expire after 4 hours' do
