@@ -1,4 +1,4 @@
-template =
+templates =
   studentList: _.template """
 <div id="bus-view">
   <div class="student">
@@ -13,17 +13,6 @@ template =
   </div>
 </div>
   """
-
-StudentList = Backbone.View.extend
-  initialize: (options) ->
-    @currentAssignment = options.currentAssignment
-
-  render: ->
-    markup = template.studentList
-      lastUpdatedAt: @currentAssignment.get('last_updated_at')
-      currentStudentName: @currentAssignment.get('student_name')
-
-    @$el.html markup
 
 Wmsb.Views.MapView = Backbone.View.extend
   events:
@@ -43,50 +32,60 @@ Wmsb.Views.MapView = Backbone.View.extend
     new google.maps.StyledMapType @styles, name: 'Boston Public Schools'
 
   initialize: (options) ->
-    @mapEl             = document.getElementById 'map-canvas'
-    @currentAssignment = @collection.find (assignment) ->
-      assignment.get('token') is cookie.get('current_assignment')
+    @header = @$('#header')
+    @mapEl  = document.getElementById 'map-canvas'
 
-    @listenTo @collection, 'reset', @updateMarker
+    @updateCurrentAssignment()
 
-    _.bindAll this
-
-  render: ->
-    @studentList = new StudentList
-      el: document.getElementById 'header'
-      collection: @collection
-      currentAssignment: @currentAssignment
-    @studentList.render()
-    
     @map = new google.maps.Map @mapEl, {
       center: @currentAssignment.get('latLng')
       zoom: 14
       mapTypeControlOptions:
         mapTypeIds: ['map_style']
     }
-
     @map.mapTypes.set 'map_style', @styledMap()
     @map.setMapTypeId 'map_style'
 
-    @updateMarker()
+    @listenTo @collection, 'reset', @rerender
 
-    @intervalID = setInterval @refreshLocations, 60000
+    _.bindAll this
 
-  refreshLocations: ->
-    @collection.fetch
-      reset: true
+  updateCurrentAssignment: ->
+    @currentAssignment = @collection.find (assignment) ->
+      assignment.get('token') is cookie.get('current_assignment')
 
-  updateMarker: ->
+  render: ->
+    @renderHeader()
+    @renderMarker()
+
+    unless @intervalID?
+      @intervalID = setInterval @refreshLocations, 5000
+
+  rerender: ->
+    @updateCurrentAssignment()
+
+    @renderHeader()
+
     if @marker?
       @marker.setMap null
 
+    @renderMarker()
+
+  renderHeader: ->
+    markup = templates.studentList
+      lastUpdatedAt: @currentAssignment.get('last_updated_at')
+      currentStudentName: @currentAssignment.get('student_name')
+    @header.html markup
+
+  renderMarker: ->
     center = @currentAssignment.get 'latLng'
     @marker = new google.maps.Marker
       position: center
       map: @map
       title: @currentAssignment.get 'student_name'
 
-    @map.setCenter center
+  refreshLocations: ->
+    @collection.fetch reset: true
 
   updateCurrentStudent: (event) ->
     @currentAssignment = @collection.find (assignment) ->
@@ -94,4 +93,4 @@ Wmsb.Views.MapView = Backbone.View.extend
 
     cookie.set 'current_assignment', @currentAssignment.get('token')
 
-    @updateMarker()
+    @render()
