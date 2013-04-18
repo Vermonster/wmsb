@@ -10,6 +10,7 @@ require 'capybara/poltergeist'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 Capybara.javascript_driver = :poltergeist
+Capybara.ignore_hidden_elements = true
 
 RSpec.configure do |config|
   # ## Mock Framework

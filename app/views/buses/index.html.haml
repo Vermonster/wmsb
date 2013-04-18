@@ -14,7 +14,7 @@
     assignments = new Wmsb.Collections.BusAssignments(JSON.parse(tmp.innerHTML));
     view = new Wmsb.Views.MapView({
       collection: assignments,
-      el: document.getElementsByTagName('body')
+      el: $('body')
     });
 
     view.render();

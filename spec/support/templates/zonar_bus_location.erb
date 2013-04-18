@@ -3,7 +3,7 @@
     <long><%= attributes[:longitude] %></long>
     <lat><%= attributes[:latitude] %></lat>
     <heading>171.60</heading>
-    <time>2013-04-05 16:16 EDT</time>
+    <time><%= attributes[:updated_at].strftime('%F %R') %> EDT</time>
     <speed unit="Mile/Hour">4.2</speed>
     <power>on</power>
   </asset>
