@@ -10,7 +10,7 @@ module DomElements
   def have_student_names_list
     have_css('.student-names')
   end
-
+  
   def student_element(name)
     find('.student-name', text: name)
   end
