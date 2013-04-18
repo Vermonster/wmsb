@@ -4,7 +4,7 @@ templates =
   <div class="student">
     <h4>Change student:</h4>
     <div class="selected-student">
-      <%= currentStudentName %>
+      <span class="name"><h2><%= currentStudentName %></h2></span>
       <span class="icon-down-dir"></span>
     </div>
     <ul class="student-names closed">

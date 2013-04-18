@@ -1,7 +1,7 @@
 #header {
   background: $green;
   overflow: hidden;
-  height: 80px;
+  height: 90px;
   #bps-logo {
     background: image-url('bps_logo_horiz_reverse.png') no-repeat;
     height: 59px;
@@ -126,17 +126,19 @@
   /*}*/
 }
 #bus-view {
-  overflow: hidden;
   .student, .time {
-    margin-top: 1em;
-    padding-bottom: .5em;
-    width: 15%;
+    margin: .875em 0;
+    padding: 0 2em .5em;
     float: left;
-    border-right: 2px $grey solid;
-    padding-left: 3%;
     h4, h2 {
-      display: block;
-      margin: 0 0 .25em;
+      margin-top: 0;
+    }
+    h4 {
+      margin-bottom: .5em;
+    }
+    &.time {
+      margin-right: 0;
+      border-left: 1px $grey solid;
     }
   }
 }
@@ -144,6 +146,24 @@
 .student-names {
   z-index: 999;
   position: absolute;
+  list-style: none;
+  background: $dk-blue;
+  padding: 1em;
+  border-radius: 15px;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, .5);
+  margin-top: 0;
+  width: 10.875em;
+  .student-name {
+    color: $green;
+    font-family: $font-e;
+    font-size: 1em;
+    font-weight: 700;
+    margin: .5em 0;
+    cursor: pointer;
+    &:hover {
+      color: $lt-blue;
+    }
+  }
 }
 
 .closed {
@@ -151,7 +171,22 @@
 }
 
 .selected-student {
-  @extend h2;
+  background: $grey;
+  padding: .25em .25em .25em .5em;
+  cursor: pointer;
+  overflow: hidden;
+  border-radius: 15px;
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.name {
+  white-space: nowrap;
+  float: left;
+  width: 10em;
+}
+
 .icon-down-dir {
   font-family: 'fontello';
   content: '\25be';
