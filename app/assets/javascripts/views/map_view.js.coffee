@@ -59,7 +59,7 @@ Wmsb.Views.MapView = Backbone.View.extend
     @renderMarker()
 
     unless @intervalID?
-      @intervalID = setInterval @refreshLocations, 5000
+      @intervalID = setInterval @refreshLocations, 60000
 
   rerender: ->
     @updateCurrentAssignment()
