@@ -8,7 +8,7 @@ templates =
     </div>
     <ul class="student-names closed">
       <% collection.each(function(assignment) { %>
-        <li><%= assignment.get("student_name") %></li>
+        <li class="student-name"><%= assignment.get("student_name") %></li>
       <% }) %>
     </ul>
   </div>
@@ -22,6 +22,7 @@ templates =
 Wmsb.Views.MapView = Backbone.View.extend
   events:
     'click .selected-student': 'toggleStudentList'
+    'click .student-name': 'updateCurrentStudent'
 
   styles: [
     stylers: [
@@ -71,9 +72,6 @@ Wmsb.Views.MapView = Backbone.View.extend
 
     @renderHeader()
 
-    if @marker?
-      @marker.setMap null
-
     @renderMarker()
 
   renderHeader: ->
@@ -84,11 +82,16 @@ Wmsb.Views.MapView = Backbone.View.extend
     @header.html markup
 
   renderMarker: ->
+    if @marker?
+      @marker.setMap null
+
     center = @currentAssignment.get 'latLng'
     @marker = new google.maps.Marker
       position: center
       map: @map
       title: @currentAssignment.get 'student_name'
+
+    @map.setCenter center
 
   toggleStudentList: ->
     @$('.student-names').toggleClass 'closed'
@@ -98,7 +101,7 @@ Wmsb.Views.MapView = Backbone.View.extend
 
   updateCurrentStudent: (event) ->
     @currentAssignment = @collection.find (assignment) ->
-      assignment.get('student_name') is event.target.text
+      assignment.get('student_name') is event.target.innerHTML
 
     cookie.set 'current_assignment', @currentAssignment.get('token')
 
