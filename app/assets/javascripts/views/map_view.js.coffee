@@ -5,6 +5,7 @@ templates =
     <h4>Change student:</h4>
     <div class="selected-student">
       <%= currentStudentName %>
+      <span class="icon-down-dir"></span>
     </div>
     <ul class="student-names closed">
       <% collection.each(function(assignment) { %>
