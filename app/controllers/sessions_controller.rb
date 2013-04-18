@@ -18,6 +18,14 @@ class SessionsController < ApplicationController
     end
   end
 
+  def destroy
+    cookies.delete(:current_assignment)
+    session.delete(:contact_id)
+    session.delete(:signed_in_at)
+
+    redirect_to root_path, notice: 'You have been logged out'
+  end
+
   private
 
   def session_params

@@ -5,6 +5,11 @@ feature 'Sessions' do
     sign_in
 
     current_path.should eq buses_path
+
+    click_link 'Logout'
+
+    current_path.should eq root_path
+    notifications.should have_content 'You have been logged out'
   end
 
   scenario 'expire after 4 hours' do

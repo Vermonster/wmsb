@@ -79,7 +79,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       lastUpdatedAt: @currentAssignment.get('last_updated_at')
       currentStudentName: @currentAssignment.get('student_name')
       collection: @collection
-    @header.html markup
+    @header.append markup
 
   renderMarker: ->
     if @marker?
