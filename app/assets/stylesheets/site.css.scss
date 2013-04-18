@@ -141,6 +141,11 @@
   }
 }
 
+.student-names {
+  z-index: 999;
+  position: absolute;
+}
+
 .selected-student {
   @extend h2;
 }

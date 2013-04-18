@@ -6,6 +6,11 @@ templates =
     <div class="selected-student">
       <%= currentStudentName %>
     </div>
+    <ul class="student-names">
+      <% collection.each(function(assignment) { %>
+        <li><%= assignment.get("student_name") %></li>
+      <% }) %>
+    </ul>
   </div>
   <div class="time">
     <h4>Last updated:</h4>
@@ -75,6 +80,7 @@ Wmsb.Views.MapView = Backbone.View.extend
     markup = templates.studentList
       lastUpdatedAt: @currentAssignment.get('last_updated_at')
       currentStudentName: @currentAssignment.get('student_name')
+      collection: @collection
     @header.html markup
 
   renderMarker: ->
