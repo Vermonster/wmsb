@@ -1,130 +1,106 @@
-#header {
-  background: $green;
-  overflow: hidden;
-  height: 90px;
-  #bps-logo {
-    background: image-url('bps_logo_horiz_reverse.png') no-repeat;
-    height: 59px;
-    width: 100px;
-    float: right;
-    margin: 1em;
-    top: -50px;
-  }
-}
-
-#main-content {
+body {
+  font-family: $font-e;
   @include background(image-url('FPO-map.jpg') bottom left no-repeat);
   background-size: cover;
 }
 
-#content-wrapper {
-  #wmsb-logo {
-    background: image-url('logo.png') no-repeat;
-    width: 337px;
-    height: 94px;
-    background-size: contain;
-    position: relative;
-    z-index: 999;
-    margin: 0 auto;
-    left: -10px;
-    top: -70px;
-  }
-  #login {
-    background: $dk-blue;
-    height: 430px;
-    width: 430px;
-    border-radius: 215px;
-    position: relative;
-    margin: 0 auto;
-    top: -137px;
-    &:before {
-      position: absolute;
-      display: inline-block;
-      width: 0; 
-      height: 0; 
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-top: 100px solid $dk-blue;
-      margin: 20px auto;
-      top: 390px;
-      left: 167px;
-      content: '';
-    }
-    &:after {
-      position: absolute;
-      display: inline-block;
-      border-bottom: none;
-      border-top: 100px solid $dk-blue;
-      content: '';
-    }
-    form {
-      text-align: center;
-      margin-top: 100px;
-      position: absolute;
-      width: 100%;
-      label {
-        display: block;
-        .control-label {
-          width: 100%;
-        }
-      }
-      input {
-        margin-bottom: 1em;
-        height: 20px;
-        width: 65%;
-        border-radius: 15px;
-        border: 2px #c6cccc solid;
-        background: $grey;
-        padding: .25em 1em;
-        color: $dk-blue;
-        font-family: $font-e;
-        font-size: 1em;
-        font-weight: 700;
-        outline: none;
-        &.btn {
-          border: none;
-          background: $green;
-          text-align: center;
-          font-size: 1em;
-          height: 35px;
-          width: 30%;
-          margin-top: 2em;
-          font-family: $font-e;
-          color: $dk-blue;
-          font-weight: 700;
-          padding-bottom: .35em;
-          &:hover {
-            background: $yellow;
-            cursor: pointer;
-          }
-        }
-      }
-    }
-  }
-  /*.markers {*/
-    /*#marker1 {*/
-      /*position: absolute;*/
-      /*width: 42px;*/
-      /*height: 49px;*/
-      /*background: image-url('marker1.png') no-repeat;*/
-      /*background-size: contain;*/
-      /*top: 300px;*/
-      /*left: 750px;*/
-    /*}*/
-    /*#marker2 {*/
-      /*@extend #marker1;*/
-      /*background: image-url('marker2.png') no-repeat;*/
-      /*top: 350px;*/
-      /*left: 100px;*/
-    /*}*/
-    /*#marker3 {*/
-      /*@extend #marker1;*/
-      /*background: url('/assets/marker3.png') no-repeat;*/
-      /*top: 500px;*/
-      /*left: 250px;*/
-    /*}*/
-  /*}*/
+#header {
+  background: $green;
+  overflow: hidden;
+  height: 90px;
 }
+
+#bps-logo {
+  background: image-url('bps_logo_horiz_reverse.png') no-repeat;
+  height: 59px;
+  width: 100px;
+  float: right;
+  margin: 1em;
+  top: -50px;
+}
+
+#wmsb-logo {
+  background: image-url('logo.png') no-repeat;
+  width: 337px;
+  height: 94px;
+  background-size: contain;
+  position: relative;
+  z-index: 999;
+  margin: 0 auto;
+  left: -10px;
+  top: -70px;
+}
+
+#login {
+  background: $dk-blue;
+  height: 430px;
+  width: 430px;
+  border-radius: 50%;
+  margin: -137px auto 0;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid $dk-blue;
+    margin: 20px auto;
+    top: 390px;
+    left: 167px;
+    content: '';
+  }
+
+  &:after {
+    position: absolute;
+    display: inline-block;
+    border-bottom: none;
+    border-top: 100px solid $dk-blue;
+    content: '';
+  }
+
+  .input.contact_id_family_name {
+    padding-top: 100px;
+  }
+
+  label {
+    display: block;
+  }
+
+  input {
+    margin-bottom: 1em;
+    height: 20px;
+    width: 65%;
+    border-radius: 15px;
+    border: 2px #c6cccc solid;
+    background: $grey;
+    padding: .25em 1em;
+    color: $dk-blue;
+    font-size: 1em;
+    font-weight: 700;
+    outline: none;
+    &.btn {
+      border: none;
+      background: $green;
+      text-align: center;
+      font-size: 1em;
+      height: 35px;
+      width: 30%;
+      margin-top: 2em;
+      color: $dk-blue;
+      font-weight: 700;
+      padding-bottom: .35em;
+      &:hover {
+        background: $yellow;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
 #bus-view {
   .student, .time {
     margin: .875em 0;
@@ -155,7 +131,6 @@
   width: 10.875em;
   .student-name {
     color: $green;
-    font-family: $font-e;
     font-size: 1em;
     font-weight: 700;
     margin: .5em 0;
@@ -203,7 +178,6 @@
   text-decoration: none;
   padding: .375em 1em;
   margin: 2em 1em 1em;
-  font-family: $font-e;
   font-weight: 700;
   &:hover {
     background: $yellow;
