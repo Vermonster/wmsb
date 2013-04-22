@@ -1,20 +1,25 @@
 class SessionsController < ApplicationController
-  def create
-    contact = ContactId.find(session_params)
+  def new
+    @session = ContactId.new
+  end
 
-    if contact.errors.any?
-      redirect_to :root, alert: contact.errors.full_messages.first
-    else
+  def create
+    @session = ContactId.new(params[:contact_id])
+
+    if @session.valid? && @session.authenticate!
       cookies[:current_assignment] = {
-        value: Digest::SHA512.hexdigest(params[:session][:student_number]),
+        value: Digest::SHA512.hexdigest(@session.student_number),
         secure: true,
         path: buses_path
       }
 
-      session[:contact_id]     = contact.contact_id
-      session[:signed_in_at]   = Time.zone.now.to_s
+      session[:contact_id]   = @session.contact_id
+      session[:signed_in_at] = Time.zone.now.to_s
 
       redirect_to :buses
+    else
+      flash.now.alert = 'There was a problem signing you in.'
+      render :new
     end
   end
 
@@ -24,22 +29,5 @@ class SessionsController < ApplicationController
     session.delete(:signed_in_at)
 
     redirect_to root_path, notice: 'You have been logged out'
-  end
-
-  private
-
-  def session_params
-    @session_params ||= begin
-      hash = params[:session].dup
-
-      date_of_birth = Time.zone.local(
-        hash.delete('date_of_birth(1i)').to_i,
-        hash.delete('date_of_birth(2i)').to_i,
-        hash.delete('date_of_birth(3i)').to_i
-      )
-      hash[:date_of_birth] = date_of_birth.strftime('%m/%d/%Y')
-
-      hash
-    end
   end
 end

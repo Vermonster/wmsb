@@ -12,7 +12,7 @@ en:
       default_message: "Please review the problems below:"
     # Labels and hints examples
     labels:
-      session:
+      contact_id:
         family_name: 'Student Last Name'
         student_number: 'Student Number'
         date_of_birth: 'Student Date of Birth'

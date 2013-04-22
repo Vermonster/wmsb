@@ -70,33 +70,44 @@ body {
     display: block;
   }
 
+  .input {
+    height: 80px;
+  }
+
+  .error {
+    color: white;
+    font-size: 0.8em;
+  }
+
   input {
-    margin-bottom: 1em;
+    border-radius: 15px;
+    padding: .25em 1em;
+  }
+
+  input.string {
     height: 20px;
     width: 65%;
-    border-radius: 15px;
     border: 2px #c6cccc solid;
     background: $grey;
-    padding: .25em 1em;
     color: $dk-blue;
     font-size: 1em;
     font-weight: 700;
     outline: none;
-    &.btn {
-      border: none;
-      background: $green;
-      text-align: center;
-      font-size: 1em;
-      height: 35px;
-      width: 30%;
-      margin-top: 2em;
-      color: $dk-blue;
-      font-weight: 700;
-      padding-bottom: .35em;
-      &:hover {
-        background: $yellow;
-        cursor: pointer;
-      }
+  }
+
+  .btn {
+    border: none;
+    background: $green;
+    text-align: center;
+    font-size: 1em;
+    height: 35px;
+    width: 30%;
+    color: $dk-blue;
+    font-weight: 700;
+    padding-bottom: .35em;
+    &:hover {
+      background: $yellow;
+      cursor: pointer;
     }
   }
 }

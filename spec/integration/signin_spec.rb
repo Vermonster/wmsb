@@ -33,4 +33,18 @@ feature 'Sessions' do
     current_path.should eq root_path
     notifications.should have_content 'Your session has expired'
   end
+
+  scenario 'validates login fields' do
+    visit root_path
+
+    click_button 'Sign In'
+
+    current_path.should eq login_path
+
+    notifications.should have_content 'There was a problem signing you in'
+
+    within login_form do
+      page.should have_form_error text: 'must be entered', count: 3
+    end
+  end
 end
