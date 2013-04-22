@@ -13,7 +13,7 @@ en:
     # Labels and hints examples
     labels:
       contact_id:
-        family_name: 'Student Last Name'
+        family_name: "Parent or Guardian's Last Name"
         student_number: 'Student Number'
         date_of_birth: 'Student Date of Birth'
     #   defaults:
