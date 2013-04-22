@@ -197,4 +197,17 @@
 
 .close-session {
   float: right;
+  @extend .selected-student;
+  background: $dk-blue;
+  color: $green;
+  text-decoration: none;
+  padding: .375em 1em;
+  margin: 2em 1em 1em;
+  font-family: $font-e;
+  font-weight: 700;
+  &:hover {
+    background: $yellow;
+    color: $dk-blue;
+    cursor: pointer;
+  }
 }
