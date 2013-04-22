@@ -19,3 +19,7 @@ label {
   color: $green;
   line-height: 1.75em;
 }
+
+.rotate {
+  @include transform(rotate(180deg));
+}
