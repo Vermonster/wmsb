@@ -45,14 +45,12 @@ Wmsb.Views.MapView = Backbone.View.extend
     @map = new google.maps.Map @mapEl, {
       center: @currentAssignment.get('latLng')
       zoom: 14
-      mapTypeControlOptions:
-        mapTypeIds: ['map_style']
+      mapTypeId: google.maps.MapTypeId.ROADMAP
       disableDefaultUI: true
       panControl: true
       zoomControl: true
     }
-    @map.mapTypes.set 'map_style', @styledMap()
-    @map.setMapTypeId 'map_style'
+    @map.mapTypes.set 'wmsb', @styledMap()
 
     @listenTo @collection, 'reset', @rerender
 
