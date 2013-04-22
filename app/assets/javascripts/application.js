@@ -8,3 +8,9 @@
 //= require backbone
 
 //= require wmsb
+
+$(function() {
+  $('.icon-cancel-circle').on('click', function() {
+    $(this).parents('.notifications').hide();
+  });
+});
