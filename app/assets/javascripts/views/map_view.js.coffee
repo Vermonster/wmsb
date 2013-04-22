@@ -98,7 +98,7 @@ Wmsb.Views.MapView = Backbone.View.extend
     @$('.icon-down-dir').toggleClass 'rotate'
 
   refreshLocations: ->
-    @collection.fetch reset: true
+    @collection.fetch reset: true, cache: false
 
   updateCurrentStudent: (event) ->
     @currentAssignment = @collection.find (assignment) ->
