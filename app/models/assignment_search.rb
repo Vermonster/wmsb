@@ -16,7 +16,7 @@ class AssignmentSearch
   end
 
   def find
-    response_body =  Rails.cache.fetch(cache_key, expires_in: 1.week) do
+    response_body =  Rails.cache.fetch(cache_key, expires_in: 12.hours) do
       response = connection.get(
         '/bpswstr/Connect.svc/bus_assignments',
         aspen_contact_id: @aspen_contact_id,

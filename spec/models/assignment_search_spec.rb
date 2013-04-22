@@ -48,7 +48,7 @@ describe AssignmentSearch do
       AssignmentSearch.find(123)
       AssignmentSearch.find(123)
 
-      Timecop.travel(1.week.from_now)
+      Timecop.travel(12.hours.from_now)
 
       AssignmentSearch.find(123)
     end
