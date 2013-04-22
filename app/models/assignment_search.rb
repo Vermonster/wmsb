@@ -45,7 +45,7 @@ class AssignmentSearch
   private
 
   def cache_key
-    "bps.assignments.#{@aspen_contact_id}"
+    "bps.assignments.#{@aspen_contact_id}.#{trip_flag}"
   end
 
   def trip_flag
