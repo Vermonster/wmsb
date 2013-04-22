@@ -1,7 +1,7 @@
 templates =
   studentList: _.template """
 <div class="student">
-  <h4>Change student:</h4>
+  <h4>Student:</h4>
   <div class="selected-student">
     <span class="name"><h2><%= currentStudentName %></h2></span>
     <span class="icon-down-dir"></span>
