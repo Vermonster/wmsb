@@ -13,13 +13,14 @@ describe ContactId do
     end
 
     def generate_contact_id
-      ContactId.new(contact_id_params).authenticate!
+      ContactId.new(contact_id_params)
     end
 
     it 'properly parses response' do
       stub_contact_id_api [200, {}, '"758294"']
 
       contact_id = generate_contact_id
+      contact_id.authenticate!
 
       contact_id.contact_id.should eq '758294'
     end
@@ -33,6 +34,7 @@ describe ContactId do
       stub_contact_id_api [400, {}, '"758294"']
 
       contact_id = generate_contact_id
+      contact_id.authenticate!
 
       contact_id.contact_id.should be_blank
       contact_id.errors.should have_key :aspen_contact_id
@@ -42,6 +44,7 @@ describe ContactId do
       stub_contact_id_api [200, {}, '"758a94"']
 
       contact_id = generate_contact_id
+      contact_id.authenticate!
 
       contact_id.contact_id.should be_blank
       contact_id.errors.should have_key :aspen_contact_id

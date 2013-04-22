@@ -43,7 +43,7 @@ class ContactId
       @contact_id = response.body.gsub('"', '')
     end
 
-    self
+    @contact_id.present?
   end
 
   def date_of_birth

@@ -47,4 +47,18 @@ feature 'Sessions' do
       page.should have_form_error text: 'must be entered', count: 3
     end
   end
+
+  scenario 'handles bad login values' do
+    stub_contact_id_api [400, {}, ""]
+
+    sign_in
+
+    current_path.should eq login_path
+
+    notifications.should have_content 'There was a problem signing you in'
+
+    within login_form do
+      page.should have_field 'contact_id_family_name', with: 'Stark'
+    end
+  end
 end
