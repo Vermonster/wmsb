@@ -1,22 +1,20 @@
 templates =
   studentList: _.template """
-<div id="bus-view">
-  <div class="student">
-    <h4>Change student:</h4>
-    <div class="selected-student">
-      <span class="name"><h2><%= currentStudentName %></h2></span>
-      <span class="icon-down-dir"></span>
-    </div>
-    <ul class="student-names closed">
-      <% collection.each(function(assignment) { %>
-        <li class="student-name"><%= assignment.get("student_name") %></li>
-      <% }) %>
-    </ul>
+<div class="student">
+  <h4>Change student:</h4>
+  <div class="selected-student">
+    <span class="name"><h2><%= currentStudentName %></h2></span>
+    <span class="icon-down-dir"></span>
   </div>
-  <div class="time">
-    <h4>Last updated:</h4>
-    <h2><%= lastUpdatedAt %></h2>
-  </div>
+  <ul class="student-names closed">
+    <% collection.each(function(assignment) { %>
+      <li class="student-name"><%= assignment.get("student_name") %></li>
+    <% }) %>
+  </ul>
+</div>
+<div class="time">
+  <h4>Last updated:</h4>
+  <h2><%= lastUpdatedAt %></h2>
 </div>
   """
 
@@ -39,7 +37,7 @@ Wmsb.Views.MapView = Backbone.View.extend
     new google.maps.StyledMapType @styles, name: 'Boston Public Schools'
 
   initialize: (options) ->
-    @header = @$('#header')
+    @busView = @$('#bus-view')
     @mapEl  = document.getElementById 'map-canvas'
 
     @updateCurrentAssignment()
@@ -80,7 +78,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       lastUpdatedAt: @currentAssignment.get('last_updated_at')
       currentStudentName: @currentAssignment.get('student_name')
       collection: @collection
-    @header.append markup
+    @busView.html markup
 
   renderMarker: ->
     if @marker?
