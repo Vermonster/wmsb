@@ -10,5 +10,8 @@
     %script{ src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=false", type: 'text/javascript' }
 
   %body
-    .notifications= notice || alert
+    .notifications
+      = notice || alert
+      Oops, your login information was incorrect. Please try again.
+      %a.icon-cancel-circle
     = yield

@@ -211,3 +211,23 @@
     cursor: pointer;
   }
 }
+
+.notifications {
+  width: 100%;
+  padding: 1em 0 1.5em;
+  font-family: $font-e;
+  background: $lt-blue;
+  color: $dk-blue;
+  position: absolute;
+  z-index: 99999;
+  text-align: center;
+  box-shadow: 1px 3px 5px rgba(0, 0, 0, .5);
+  vertical-align: -3%;
+}
+
+.icon-cancel-circle {
+  color: $dk-blue;
+  content: "\2716";
+  font-size: 1.5em;
+  margin-top: .25em;
+}
