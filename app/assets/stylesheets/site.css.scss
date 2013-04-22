@@ -1,7 +1,10 @@
 body {
   font-family: $font-e;
-  @include background(image-url('FPO-map.jpg') bottom left no-repeat);
-  background-size: cover;
+
+  &.sessions {
+    @include background(image-url('FPO-map.jpg') bottom left no-repeat);
+    background-size: cover;
+  }
 }
 
 #header {

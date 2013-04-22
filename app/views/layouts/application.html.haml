@@ -9,7 +9,7 @@
 
     %script{ src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=false", type: 'text/javascript' }
 
-  %body
+  %body{ class: controller.controller_name }
     - if notice || alert
       .notifications
         = notice || alert
