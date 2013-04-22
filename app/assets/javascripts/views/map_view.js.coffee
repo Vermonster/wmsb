@@ -47,6 +47,9 @@ Wmsb.Views.MapView = Backbone.View.extend
       zoom: 14
       mapTypeControlOptions:
         mapTypeIds: ['map_style']
+      disableDefaultUI: true
+      panControl: true
+      zoomControl: true
     }
     @map.mapTypes.set 'map_style', @styledMap()
     @map.setMapTypeId 'map_style'
