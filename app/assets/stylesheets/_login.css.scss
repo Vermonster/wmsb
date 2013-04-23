@@ -8,6 +8,15 @@
   margin: 0 auto;
   left: -10px;
   top: -70px;
+  @media (max-width: $break-med) {
+    top: -60px;
+    left: 0;
+  }
+  @media (max-width: $break-sm) {
+    width: 265px;
+    top: -45px;
+    left: 0;
+  }
 }
 
 #login {
@@ -18,6 +27,10 @@
   margin: -138px auto 0;
   text-align: center;
   position: relative;
+  @media (max-width: $break-med) {
+    background: none;
+    width: auto;
+  }
 
   &:before {
     position: absolute;
@@ -31,6 +44,9 @@
     top: 355px;
     left: 157px;
     content: '';
+    @media (max-width: $break-med) {
+      display: none;
+    }
   }
 
   &:after {
@@ -39,6 +55,9 @@
     border-bottom: none;
     border-top: 100px solid $dk-blue;
     content: '';
+    @media (max-width: $break-med) {
+      display: none;
+    }
   }
 
   .input.contact_id_family_name {

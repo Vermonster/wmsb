@@ -10,6 +10,9 @@ body {
   &.sessions {
     @include background(image-url('FPO-map.jpg') bottom left no-repeat);
     background-size: cover;
+    @media (max-width: $break-med) {
+      background: $dk-blue;
+    }
   }
 }
 
@@ -17,6 +20,12 @@ body {
   background: $green;
   overflow: hidden;
   height: 90px;
+  @media (max-width: $break-med) {
+    height: 80px;
+  }
+  @media(max-width: $break-sm) {
+    height: 60px;
+  }
 }
 
 .notifications {
