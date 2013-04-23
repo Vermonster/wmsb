@@ -13,16 +13,16 @@
     - if notice || alert
       .notifications
         = notice || alert
-        %a.icon-cancel-circle{ href: 'javascript:void(0)' }
+        %a.icon-cancel-circle{href: 'javascript:void(0)'}
     = yield
     .footer
-      %a{href: "http://www.bostonpublicschools.org", target: "_blank"}
+      %a.small-text{href: "http://www.bostonpublicschools.org", target: "_blank"}
         .bps-logo
       .contact
-        %a{href: "http://www.bostonpublicschools.org/transportation", target: "_blank"}Boston Public Schools Transportation Department
-        %a{href: "mailto:schoolbus@bostonpublicschools.org"}schoolbus@bostonpublicschools.org
-        %a{href: "tel:617-635-9520"}617-635-9520
+        %a.small-text{href: "http://www.bostonpublicschools.org/transportation", target: "_blank"} Boston Public Schools Transportation Department
+        %a.small-text{href: "mailto:schoolbus@bostonpublicschools.org"}  schoolbus@bostonpublicschools.org
+        %a.small-text{href: "tel:617-635-9520"} 617-635-9520
       .credit
-        %p Built by
-        %a{href: "http://www.vermonster.com/", target: "_blank"}
+        %p.small-text Built by
+        %a.small-text{href: "http://www.vermonster.com/", target: "_blank"}
           .vermonster-logo

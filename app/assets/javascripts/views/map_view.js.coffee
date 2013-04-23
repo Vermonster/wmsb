@@ -1,7 +1,7 @@
 templates =
   studentList: _.template """
 <div class="header-info student">
-  <h4>Student:</h4>
+  <h4 class="small-text">Student:</h4>
   <div class="selected-student">
     <span class="name"><h2><%= currentStudentName %></h2></span>
     <span class="icon-down-dir"></span>
@@ -13,11 +13,11 @@ templates =
   </ul>
 </div>
 <div class="header-info time">
-  <h4>Last updated:</h4>
+  <h4 class="small-text">Last updated:</h4>
   <h2><%= lastUpdatedAt %></h2>
 </div>
 <div class="header-info bus-number">
-  <h4>Bus number:</h4>
+  <h4 class="small-text">Bus number:</h4>
   <h2><%= busNumber %></h2>
 </div>
   """
