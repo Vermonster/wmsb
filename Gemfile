@@ -23,6 +23,7 @@ end
 
 group :production do
   gem 'memcachier'
+  gem 'newrelic_rpm'
 end
 
 group :development do
