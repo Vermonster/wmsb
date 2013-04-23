@@ -5,11 +5,12 @@ h2 {
   font-weight: 700;
 }
 
-h4, p {
+h4, p, a {
   color: $dk-blue;
   font-family: "helvetica", sans-serif;
   font-size: .7em;
   font-weight: 500;
+  text-decoration: none;
 }
 
 label {

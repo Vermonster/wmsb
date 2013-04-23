@@ -16,11 +16,12 @@
         %a.icon-cancel-circle{ href: 'javascript:void(0)' }
     = yield
     .footer
+      %a{href: "http://www.bostonpublicschools.org", target: "_blank"}
+        .bps-logo
       .contact
-        %h4 Boston Public Schools Transportation Department
-        %p schoolbus@bostonpublicschools.org
-        %p 617-635-9520
-      .bps-logo
+        %a{href: "http://www.bostonpublicschools.org/transportation", target: "_blank"}Boston Public Schools Transportation Department
+        %a{href: "mailto:schoolbus@bostonpublicschools.org"}schoolbus@bostonpublicschools.org
+        %a{href: "tel:617-635-9520"}617-635-9520
       .credit
         %p Built by
         %a{href: "http://www.vermonster.com/", target: "_blank"}
