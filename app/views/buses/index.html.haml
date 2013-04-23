@@ -5,23 +5,4 @@
 %script#locations{ type: 'text/json' }
   #{ @assignments.to_json }
 
-:javascript
-  function initialize() {
-    var tmp, assignments, text, view;
-
-    tmp = document.createElement('div');
-    text = document.getElementById('locations').innerHTML
-    tmp.innerHTML = text
-
-    assignments = new Wmsb.Collections.BusAssignments(JSON.parse(tmp.innerHTML));
-    view = new Wmsb.Views.MapView({
-      collection: assignments,
-      el: $('body')
-    });
-
-    view.render();
-  }
-
-  google.maps.event.addDomListener(window, 'load', initialize);
-
 #map-canvas
