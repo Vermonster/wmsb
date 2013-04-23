@@ -1,6 +1,7 @@
 class BusAssignmentSerializer < ActiveModel::Serializer
   attributes :token,
              :student_name,
+             :bus_number,
              :latitude,
              :longitude,
              :last_updated_at

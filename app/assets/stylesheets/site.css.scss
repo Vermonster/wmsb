@@ -107,20 +107,23 @@ body {
 }
 
 #bus-view {
-  .student, .time {
+  .header-info {
     margin: .875em 0;
     padding: 0 2em .5em;
     float: left;
-    h4, h2 {
-      margin-top: 0;
-    }
-    h4 {
-      margin-bottom: .5em;
-    }
-    &.time {
-      margin-right: 0;
-      border-left: 1px $grey solid;
-    }
+  }
+
+  h4, h2 {
+    margin-top: 0;
+  }
+
+  h4 {
+    margin-bottom: .5em;
+  }
+
+  .time, .bus-number {
+    margin-right: 0;
+    border-left: 1px $grey solid;
   }
 }
 
@@ -184,6 +187,7 @@ body {
   padding: .375em 1em;
   margin: 2em 1em 1em;
   font-weight: 700;
+
   &:hover {
     background: $yellow;
     color: $dk-blue;
