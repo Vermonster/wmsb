@@ -13,9 +13,9 @@ en:
     # Labels and hints examples
     labels:
       contact_id:
-        family_name: "Parent or Guardian's Last Name"
+        family_name: "Parent&rsquo;s or Guardian&rsquo;s Last Name"
         student_number: 'Student Number'
-        date_of_birth: 'Student Date of Birth'
+        date_of_birth: 'Student&rsquo;s Date of Birth'
     #   defaults:
     #     password: 'Password'
     #   user:
