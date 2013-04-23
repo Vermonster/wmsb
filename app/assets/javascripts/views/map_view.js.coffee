@@ -67,7 +67,6 @@ Wmsb.Views.MapView = Backbone.View.extend
   render: ->
     @renderHeader()
     @renderMarker()
-    @map.setCenter @currentAssignment.get('latLng')
 
     unless @intervalID?
       @intervalID = setInterval @refreshLocations, 30000
@@ -97,6 +96,8 @@ Wmsb.Views.MapView = Backbone.View.extend
       map: @map
       title: @currentAssignment.get 'student_name'
       icon: '/assets/bus-marker.png'
+
+    @map.setCenter center
 
   toggleStudentList: ->
     @$('.student-names').toggleClass 'closed'
