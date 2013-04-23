@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_filter :redirect_to_buses, only: :new
+
   def new
     @session = ContactId.new
   end
@@ -29,5 +31,13 @@ class SessionsController < ApplicationController
     session.delete(:signed_in_at)
 
     redirect_to root_path, notice: 'You have been logged out'
+  end
+
+  private
+
+  def redirect_to_buses
+    if session_exists? && !session_expired?
+      redirect_to :buses
+    end
   end
 end

@@ -16,7 +16,7 @@ class BusesController < ApplicationController
   private
 
   def authenticate!
-    if session[:contact_id] && Time.zone.now - signed_in_at > 4.hours
+    if session_exists? && session_expired?
       cookies.delete(:current_assignment)
       session.delete(:contact_id)
 
@@ -24,9 +24,5 @@ class BusesController < ApplicationController
     elsif !session[:contact_id]
       redirect_to :root, alert: 'You need to sign in first.'
     end
-  end
-
-  def signed_in_at
-    @signed_in_at ||= Time.zone.parse(session[:signed_in_at])
   end
 end

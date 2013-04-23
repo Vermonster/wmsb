@@ -61,4 +61,14 @@ feature 'Sessions' do
       page.should have_field 'contact_id_family_name', with: 'Stark'
     end
   end
+
+  scenario 'redirects back to buses page after signing in' do
+    sign_in
+
+    current_path.should eq buses_path
+
+    visit root_path
+
+    current_path.should eq buses_path
+  end
 end
