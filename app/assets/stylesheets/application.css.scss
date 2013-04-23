@@ -1,18 +1,8 @@
 @import 'bourbon';
 @import 'variables';
-@import "fonts";
+@import 'fonts';
 @import 'base';
-@import 'site';
-
-html, body, #map-canvas-wrapper {
-  height: 100%;
-}
-
-#map-canvas {
-  height: 80%;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-}
+@import 'icons';
+@import 'layout';
+@import 'login';
+@import 'buses';

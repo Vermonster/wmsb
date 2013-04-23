@@ -1,0 +1,92 @@
+#wmsb-logo {
+  background: image-url('logo.png') no-repeat;
+  width: 337px;
+  height: 94px;
+  background-size: contain;
+  position: relative;
+  z-index: 999;
+  margin: 0 auto;
+  left: -10px;
+  top: -70px;
+}
+
+#login {
+  background: $dk-blue;
+  height: 430px;
+  width: 430px;
+  border-radius: 50%;
+  margin: -137px auto 0;
+  text-align: center;
+  position: relative;
+
+  &:before {
+    position: absolute;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-top: 100px solid $dk-blue;
+    margin: 20px auto;
+    top: 390px;
+    left: 167px;
+    content: '';
+  }
+
+  &:after {
+    position: absolute;
+    display: inline-block;
+    border-bottom: none;
+    border-top: 100px solid $dk-blue;
+    content: '';
+  }
+
+  .input.contact_id_family_name {
+    padding-top: 100px;
+  }
+
+  label {
+    display: block;
+  }
+
+  .input {
+    height: 80px;
+  }
+
+  .error {
+    color: white;
+    font-size: 0.8em;
+  }
+
+  input {
+    border-radius: 15px;
+    padding: .25em 1em;
+  }
+
+  input.string {
+    height: 20px;
+    width: 65%;
+    border: 2px #c6cccc solid;
+    background: $grey;
+    color: $dk-blue;
+    font-size: 1em;
+    font-weight: 700;
+    outline: none;
+  }
+
+  .btn {
+    border: none;
+    background: $green;
+    text-align: center;
+    font-size: 1em;
+    height: 35px;
+    width: 30%;
+    color: $dk-blue;
+    font-weight: 700;
+    padding-bottom: .35em;
+    &:hover {
+      background: $yellow;
+      cursor: pointer;
+    }
+  }
+}

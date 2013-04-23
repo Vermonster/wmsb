@@ -24,3 +24,7 @@ label {
 .rotate {
   @include transform(rotate(180deg));
 }
+
+.closed {
+  display: none;
+}
