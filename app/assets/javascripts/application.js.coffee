@@ -18,7 +18,9 @@ $ ->
     $(this).parents('.notifications').hide()
 
   updateMapHeight = ->
-    $canvas.height $(window).height() - $header.height() - $footer.height()
+    # 20px padding on the top and bottom of the footer is not taken into
+    # account when using box-sizing: border-box
+    $canvas.height $(window).height() - $header.height() - $footer.height() - 40
 
   initialize = ->
     tmp = document.createElement 'div'
