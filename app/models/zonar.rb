@@ -16,7 +16,7 @@ module Zonar
       target: bus_id
     )
 
-    response_body = Rails.cache.fetch(cache_key(bus_id), expires_in: 60, race_condition_ttl: 2) do
+    response_body = Rails.cache.fetch(cache_key(bus_id), expires_in: 45, race_condition_ttl: 2) do
       response = connection.get('interface.php', params)
       response.success? ? response.body : nil
     end

@@ -70,7 +70,7 @@ Wmsb.Views.MapView = Backbone.View.extend
     @map.setCenter @currentAssignment.get('latLng')
 
     unless @intervalID?
-      @intervalID = setInterval @refreshLocations, 60000
+      @intervalID = setInterval @refreshLocations, 30000
 
   rerender: ->
     @updateCurrentAssignment()
