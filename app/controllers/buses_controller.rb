@@ -20,9 +20,15 @@ class BusesController < ApplicationController
       cookies.delete(:current_assignment)
       session.delete(:contact_id)
 
-      redirect_to :root, alert: 'Your session has expired.'
+      respond_to do |format|
+        format.html { redirect_to :root, alert: 'Your session has expired.' }
+        format.json { head 401 }
+      end
     elsif !session[:contact_id]
-      redirect_to :root, alert: 'You need to sign in first.'
+      respond_to do |format|
+        format.html { redirect_to :root, alert: 'You need to sign in first.' }
+        format.json { head 401 }
+      end
     end
   end
 end

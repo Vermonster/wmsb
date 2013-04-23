@@ -10,10 +10,9 @@
     %script{ src: "https://maps.googleapis.com/maps/api/js?key=#{ENV['GOOGLE_MAPS_KEY']}&sensor=false", type: 'text/javascript' }
 
   %body{ class: controller.controller_name }
-    - if notice || alert
-      .notifications
-        = notice || alert
-        %a.icon-cancel-circle{href: 'javascript:void(0)'}
+    .notifications{ class: notice || alert ? '' : 'closed' }
+      %span.message= notice || alert
+      %a.icon-cancel-circle{href: 'javascript:void(0)'}
     = yield
     .footer
       %a.small-text.bps-logo{href: "http://www.bostonpublicschools.org", target: "_blank"}

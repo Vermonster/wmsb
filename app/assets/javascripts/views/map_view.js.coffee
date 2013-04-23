@@ -109,7 +109,15 @@ Wmsb.Views.MapView = Backbone.View.extend
     @$('.icon-down-dir').toggleClass 'rotate'
 
   refreshLocations: ->
-    @collection.fetch reset: true, cache: false
+    @collection.fetch
+      reset: true
+      cache: false
+      error: (collection, response, options) ->
+        if response.status == 401
+          Wmsb.notice 'Your session has expired. You will be signed out shortly.'
+          setTimeout (-> window.location.pathname = ''), 5000
+        else
+          Wmsb.notice 'There was a problem updating the bus location. Refresh the page or sign in again.'
 
   updateCurrentStudent: (event) ->
     @currentAssignment = @collection.find (assignment) ->
