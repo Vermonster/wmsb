@@ -7,7 +7,8 @@ class BusAssignment
                 :parentlastname,
                 :studentfirstname,
                 :studentlastname,
-                :days
+                :days,
+                :trip_flag
 
   alias :bus_number :BusNumber
   alias :student_number :StudentNo
@@ -18,10 +19,12 @@ class BusAssignment
 
   delegate :longitude, :latitude, :last_updated_at, to: :location
 
-  def initialize(attributes)
+  def initialize(attributes, trip_flag)
     attributes.each do |attr, value|
       send("#{attr}=", value) if respond_to?(attr)
     end
+
+    self.trip_flag = trip_flag
   end
 
   def student_name

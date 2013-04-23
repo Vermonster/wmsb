@@ -1,6 +1,6 @@
 templates =
   studentList: _.template """
-<div class="header-info student">
+<div class="header-info header-info-first student">
   <h4 class="small-text">Student:</h4>
   <div class="selected-student">
     <span class="name"><h2><%= currentStudentName %></h2></span>
@@ -19,6 +19,10 @@ templates =
 <div class="header-info bus-number">
   <h4 class="small-text">Bus number:</h4>
   <h2><%= busNumber %></h2>
+</div>
+<div class="header-info bus-destination">
+  <h4 class="small-text">Destination:</h4>
+  <h2><%= destination %></h2>
 </div>
   """
 
@@ -84,6 +88,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       busNumber: @currentAssignment.get 'bus_number'
       currentStudentName: @currentAssignment.get 'student_name'
       collection: @collection
+      destination: @currentAssignment.get 'destination'
     @busView.html markup
 
   renderMarker: ->

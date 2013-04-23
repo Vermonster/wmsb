@@ -35,7 +35,7 @@ class AssignmentSearch
 
     if !response_body.nil?
       @assignments = JSON.parse(response_body).map do |assignment|
-        BusAssignment.new(assignment)
+        BusAssignment.new(assignment, trip_flag)
       end
     end
 
