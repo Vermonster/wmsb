@@ -49,7 +49,7 @@ class AssignmentSearch
   end
 
   def trip_flag
-    time_of_request.hour >= 11 ? 'departure' : 'arival'
+    time_of_request.hour >= 11 ? 'departure' : 'arrival'
   end
 
   def current_date
