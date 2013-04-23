@@ -49,8 +49,7 @@ class AssignmentSearch
   end
 
   def trip_flag
-    # FIXME: This needs to be conditionalized based on time of day?
-    'arival'
+    time_of_request.hour >= 11 ? 'departure' : 'arival'
   end
 
   def current_date
