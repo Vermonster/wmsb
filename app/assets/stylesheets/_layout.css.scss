@@ -91,17 +91,14 @@ body {
 
 .bps-logo {
   display: block;
-  background: image-url('bps_logo_grayscale.png') no-repeat;
-  background-size: contain;
-  height: 70px;
+  background-image: image-url('bps-logo.svg');
+  background-position: left top;
   width: 126px;
+  height: 70px;
   float: left;
   margin-right: 15px;
 
   &:hover {
-    background: image-url('bps_logo.png') no-repeat;
-    background-size: contain;
-    height: 70px;
-    width: 126px;
+    background-position: left bottom;
   }
 }
