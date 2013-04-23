@@ -96,6 +96,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       position: center
       map: @map
       title: @currentAssignment.get 'student_name'
+      icon: '/assets/bus-marker.png'
 
   toggleStudentList: ->
     @$('.student-names').toggleClass 'closed'
