@@ -67,7 +67,8 @@ body {
     position: relative;
     border-left: none;
     padding-left: 0;
-    width: 60%;
+    margin-top: 0;
+    width: 100%;
   }
 
   .small-text {
@@ -75,6 +76,13 @@ body {
     margin: .5em 0;
     font-weight: 500;
     display: block;
+    @media (max-width: $break-med) {
+      color: $dk-blue;
+      float: left;
+      max-width: 65%;
+      padding: 0 .25em;
+      margin: 0;
+    }
 
     &:hover {
       color: $dk-blue;
