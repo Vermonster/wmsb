@@ -73,8 +73,10 @@
   }
 
   .error {
-    color: white;
-    font-size: 0.8em;
+    display: block;
+    color: $yellow;
+    font-size: 0.7em;
+    font-family: $font-h;
   }
 
   input {
