@@ -62,6 +62,13 @@
   }
 }
 
+.header-details {
+  @media (max-width: $break-med) {
+    width: 100%;
+    overflow: hidden;
+  }
+}
+
 .close-session {
   float: right;
   @extend .selected-student;

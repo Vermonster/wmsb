@@ -12,17 +12,19 @@ templates =
     <% }) %>
   </ul>
 </div>
-<div class="header-info time">
-  <h4 class="small-text">Last updated:</h4>
-  <h2><%= lastUpdatedAt %></h2>
-</div>
-<div class="header-info bus-number">
-  <h4 class="small-text">Bus number:</h4>
-  <h2><%= busNumber %></h2>
-</div>
-<div class="header-info bus-destination">
-  <h4 class="small-text">Destination:</h4>
-  <h2><%= destination %></h2>
+<div class="header-details">
+  <div class="header-info time">
+    <h4 class="small-text">Last updated:</h4>
+    <h2><%= lastUpdatedAt %></h2>
+  </div>
+  <div class="header-info bus-number">
+    <h4 class="small-text">Bus number:</h4>
+    <h2><%= busNumber %></h2>
+  </div>
+  <div class="header-info bus-destination">
+    <h4 class="small-text">Destination:</h4>
+    <h2><%= destination %></h2>
+  </div>
 </div>
   """
 
