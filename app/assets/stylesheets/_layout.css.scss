@@ -113,7 +113,7 @@ body {
   float: right;
   margin-top: 42px;
   @media (max-width: $break-med) {
-    margin-top: 25px;
+    display: none;
   }
 
   p {
