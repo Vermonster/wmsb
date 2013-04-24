@@ -15,7 +15,11 @@
   }
 
   h4 {
-    margin-bottom: .5em;
+    margin-bottom: .25em;
+  }
+
+  h2 {
+    margin-bottom: 0;
   }
 
   .header-info-first {
@@ -33,7 +37,8 @@
   }
 
   .small-text {
-    font-family: $font-e;
+    font-family: $font-h;
+    color: $dk-blue;
   }
 }
 
