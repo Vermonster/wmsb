@@ -3,6 +3,11 @@
     margin: .875em 0;
     padding: 0 1em .5em;
     float: left;
+    @media (max-width: $break-med) {
+      margin: .75em 0 0;
+      padding: 0 .65em;
+      font-size: .875em;
+    }
   }
 
   h4, h2 {
@@ -15,6 +20,11 @@
 
   .header-info-first {
     border: none;
+    @media (max-width: $break-med) {
+      font-size: 1em;
+      margin: 0;
+      padding: 0;
+    }
   }
 
   .small-text {
