@@ -76,12 +76,20 @@
   color: $green;
   text-decoration: none;
   padding: .375em 1em;
-  margin: 2em 1em 1em;
+  margin: 1.875em 1em 1em;
   font-weight: 700;
 
   &:hover {
     background: $yellow;
     color: $dk-blue;
     cursor: pointer;
+  }
+  @media (max-width: $break-med) {
+    margin: 0;
+  }
+  @media (max-width: $break-xsm) {
+    width: 35px;
+    font-size: 1em;
+    padding: .3em 1.5em .4em .75em;
   }
 }

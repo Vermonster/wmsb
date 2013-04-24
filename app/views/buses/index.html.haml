@@ -1,6 +1,6 @@
 #header
-  #bus-view
   = link_to 'Logout', '/logout', method: :delete, class: 'close-session'
+  #bus-view
 
 %script#locations{ type: 'text/json' }
   #{ @assignments.to_json }
