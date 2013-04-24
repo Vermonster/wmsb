@@ -24,7 +24,7 @@ describe Zonar do
       Zonar.bus_location('BUSID').should be_nil
 
       # Ensure cache miss
-      Rails.cache.fetch(Zonar.send(:cache_key, 'BUSID')).should be_nil
+      Rails.cache.fetch('zonar.locations.BUSID').should be_nil
     end
 
     it 'caches bus locations for 60 seconds' do
@@ -43,6 +43,36 @@ describe Zonar do
       Timecop.travel(60.seconds.from_now)
 
       Zonar.bus_location('cacheme')
+    end
+  end
+
+  describe '.bus_history' do
+    it 'parses json response' do
+      time = Time.zone.local(2010, 10, 30, 10, 30)
+      sample_bus_history = bus_history_response(
+        lat: 1,
+        lng: 2,
+        time: time
+      )
+
+      stub_zonar_history_api [200, {}, [sample_bus_history]]
+
+      history = Zonar.bus_history('BUS')
+
+      point = history.first
+
+      point.latitude.should eq 1
+      point.longitude.should eq 2
+      point.last_updated_at.should eq time
+    end
+
+    it 'returns nil if failed' do
+      stub_zonar_api [400, {}, "{}"]
+
+      Zonar.bus_history('BUSID').should be_nil
+
+      # Ensure cache miss
+      Rails.cache.fetch('zonar.history.BUSID').should be_nil
     end
   end
 end

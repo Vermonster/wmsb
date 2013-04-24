@@ -7,6 +7,25 @@ module ApiStubbing
     stub_api(@zonar_stubs, '/interface.php', response_body)
   end
 
+  def stub_zonar_history_api(response_body)
+    points = response_body.pop
+    json = {
+      pathevents: {
+        ver: 1,
+        assetcount: 1,
+        assets: [{
+          id: 1,
+          eventcount: points.length,
+          events: points
+        }]
+      }
+    }
+
+    response_body << json.to_json
+
+    stub_api(@zonar_stubs, '/interface.php', response_body)
+  end
+
   def stub_contact_id_api(response_body)
     stub_api(@contact_id_stubs, '/bpswstr/Connect.svc/aspen_contact_id', response_body)
   end
@@ -62,5 +81,15 @@ module ApiStubbing
     )
 
     ERB.new(File.read('spec/support/templates/zonar_bus_location.erb')).result(binding)
+  end
+
+  def bus_history_response(attributes = {})
+    time = attributes.delete(:time) || Time.zone.now
+    attributes.reverse_merge(
+      lat: 42,
+      lng: -71,
+      time: time.strftime('%F %R:00-04'),
+      heading: 'NE'
+    )
   end
 end
