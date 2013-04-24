@@ -52,6 +52,9 @@ body {
   padding: 20px;
   overflow: auto;
   @media (max-width: $break-med) {
+    background: $lt-blue;
+    border-top: none;
+    padding: 10px 20px;
   }
 }
 
