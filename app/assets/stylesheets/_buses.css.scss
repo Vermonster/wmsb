@@ -25,6 +25,11 @@
       margin: 0;
       padding: 0;
     }
+    h4 {
+      @media (max-width: $break-med) {
+        display: none;
+      }
+    }
   }
 
   .small-text {
