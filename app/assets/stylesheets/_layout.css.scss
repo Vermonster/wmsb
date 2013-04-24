@@ -146,10 +146,7 @@ body {
   float: left;
   margin-right: 15px;
   @media (max-width: $break-med) {
-    width: 85px;
-    height: 47px;
-    background-size: 100%;
-    margin-top: 5px;
+    display: none;
   }
 
   &:hover {
