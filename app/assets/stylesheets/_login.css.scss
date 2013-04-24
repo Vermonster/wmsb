@@ -101,10 +101,10 @@
 
   .btn {
     border: none;
-    background: $green;
+    background: $lt-blue;
     text-align: center;
     font-size: 1em;
-    height: 35px;
+    height: 32px;
     width: 30%;
     color: $dk-blue;
     font-weight: 700;
@@ -112,6 +112,10 @@
     &:hover {
       background: $yellow;
       cursor: pointer;
+    }
+    @media (max-width: $break-med) {
+      width: 75%;
+      background: $green;
     }
   }
 }
