@@ -2,7 +2,7 @@
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
 <svg xmlns="http://www.w3.org/2000/svg">
 <metadata>
-Created by FontForge 20110222 at Thu Apr 18 21:47:31 2013
+Created by FontForge 20110222 at Wed Apr 24 18:22:43 2013
  By root
 Copyright (C) 2012 by original authors @ fontello.com
 </metadata>
@@ -16,10 +16,10 @@ Copyright (C) 2012 by original authors @ fontello.com
     panose-1="2 0 6 3 0 0 0 0 0 0"
     ascent="850"
     descent="-150"
-    bbox="15 -79 872 779"
+    bbox="15 -79 915 779"
     underline-thickness="50"
     underline-position="-100"
-    unicode-range="U+25BE-2716"
+    unicode-range="U+25BE-1F4DE"
   />
 <missing-glyph 
 d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
@@ -31,8 +31,14 @@ d="M33 0v666h265v-666h-265zM66 33h199v600h-199v-600z" />
  />
     <glyph glyph-name="uni25BE" unicode="&#x25be;" horiz-adv-x="601" 
 d="M15 457q0 14 11 25t25 11h500q14 0 24.5 -11t10.5 -25q0 -15 -10 -25l-250 -250q-11 -11 -25 -11t-25 11l-250 250q-11 11 -11 25z" />
+    <glyph glyph-name="uni2709" unicode="&#x2709;" horiz-adv-x="930" 
+d="M17 626q2 14 26 14h846q38 0 20 -32q-8 -15 -24 -22q-8 -4 -96.5 -51t-181 -97t-96.5 -52q-16 -10 -46 -10q-29 0 -46 10q-4 2 -96.5 52t-181 97t-96.5 51q-32 18 -28 40zM895 486q20 11 20 -10v-368q0 -16 -17 -32t-33 -16h-800q-16 0 -33 16t-17 32v368q0 21 20 10
+l384 -200q17 -10 46 -10t46 10z" />
     <glyph glyph-name="uni2716" unicode="&#x2716;" horiz-adv-x="887" 
 d="M15 350q0 123 60 219.5t153 151.5q101 58 216 58q123 0 219.5 -60t151.5 -154q57 -99 57 -215q0 -123 -60 -219.5t-153 -151.5q-101 -58 -215 -58q-123 0 -220 60t-152 154q-57 99 -57 215zM231 224q0 -15 11 -26l50 -50q11 -11 25 -11q15 0 26 11l101 101l101 -101
 q11 -11 25 -11t25 11l51 50q10 10 10 26q0 15 -10 25l-101 101l101 101q10 10 10 25q0 16 -10 26l-51 50q-11 11 -25 11t-25 -11l-101 -101l-101 101q-11 11 -26 11q-14 0 -25 -11l-50 -50q-11 -11 -11 -26q0 -14 11 -25l101 -101l-101 -101q-11 -11 -11 -25z" />
+    <glyph glyph-name="u1F4DE" unicode="&#x1f4de;" horiz-adv-x="830" 
+d="M476 290q162 162 118 206l-8 8q-31 31 -41 48q-11 19 -4 54q8 36 49 88q17 21 37 39q19 17 65 17q12 0 53 -31l47 -47q48 -48 -6 -194t-204 -294q-150 -150 -295 -205t-193 -7l-24 24l-24 23q-4 5 -18 24q-11 16 -12.5 27.5t1.5 33.5q2 19 15 35q16 20 51.5 47t56.5 37
+q27 13 54 2q26 -11 35 -18q12 -10 39 -37q44 -44 208 120z" />
   </font>
 </defs></svg>
