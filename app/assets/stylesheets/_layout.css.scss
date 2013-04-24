@@ -81,6 +81,21 @@ body {
       font-weight: 700;
     }
   }
+  @media (max-width: $break-med) {
+    .icon-contact {
+      font-size: 1.5em;
+      float: right;
+      margin: 0;
+    }
+    .text-contact {
+      display: none !important;
+    }
+  }
+  @media (min-width: $break-med + 1) {
+    .icon-contact {
+      display: none;
+    }
+  }
 }
 
 .credit {
