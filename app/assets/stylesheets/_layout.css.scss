@@ -8,11 +8,7 @@ body {
   padding: 0;
 
   &.sessions {
-    @include background(image-url('FPO-map.jpg') bottom left no-repeat);
-    background-size: cover;
-    @media (max-width: $break-med) {
-      background: $dk-blue;
-    }
+    background: $dk-blue;
   }
 }
 
