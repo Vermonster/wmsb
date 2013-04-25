@@ -41,6 +41,8 @@ Wmsb.Views.MapView = Backbone.View.extend
     ]
   ]
 
+  points: []
+
   styledMap: ->
     new google.maps.StyledMapType @styles, name: 'Boston Public Schools'
 
@@ -94,6 +96,22 @@ Wmsb.Views.MapView = Backbone.View.extend
   renderMarker: ->
     if @marker?
       @marker.setMap null
+
+    if @points.length is not 0
+      _.each @points, (point) ->
+        point.setMap null
+
+      @points.length = 0
+
+    _.each @currentAssignment.get('history'), (point) =>
+      latLng = new google.maps.LatLng point.lat, point.lng
+
+      point = new google.maps.Marker
+        position: latLng
+        icon: '/assets/dot.png'
+
+      point.setMap @map
+      @points.push point
 
     center = @currentAssignment.get 'latLng'
     @marker = new google.maps.Marker

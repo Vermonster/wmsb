@@ -10,7 +10,8 @@ class BusAssignmentSerializer < ActiveModel::Serializer
              :latitude,
              :longitude,
              :last_updated_at,
-             :destination
+             :destination,
+             :history
 
   def token
     Digest::SHA512.hexdigest(object.student_number)
