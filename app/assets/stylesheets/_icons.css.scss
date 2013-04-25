@@ -3,14 +3,20 @@
   font-size: 1.5em;
   color: $yellow;
   float: right;
+  &:hover {
+    color: $lt-blue;
+  }
 }
 
 .icon-cancel-circle {
   color: $dk-blue;
-  content: "\2716";
   font-size: 1.5em;
-  margin-top: .25em;
   text-decoration: none;
+  &:hover {
+    color: $grey;
+  }
+}
+
 .icon-phone, .icon-mail {
   text-decoration: none;
   color: $dk-blue;
