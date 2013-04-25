@@ -74,7 +74,7 @@
 
   .error {
     display: block;
-    color: $yellow;
+    color: $lt-blue;
     font-size: 0.7em;
     font-family: $font-h;
   }
@@ -101,7 +101,7 @@
 
   .btn {
     border: none;
-    background: $lt-blue;
+    background: $yellow;
     text-align: center;
     font-size: 1em;
     height: 32px;
@@ -110,7 +110,7 @@
     font-weight: 700;
     padding-bottom: .35em;
     &:hover {
-      background: $yellow;
+      background: $lt-blue;
       cursor: pointer;
     }
     @media (max-width: $break-med) {
