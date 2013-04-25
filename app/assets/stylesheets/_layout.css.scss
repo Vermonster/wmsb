@@ -41,15 +41,12 @@ body {
 .footer {
   width: 100%;
   @include box-sizing(border-box);
-  background: $grey;
+  background: $lt-blue;
   position: fixed;
   bottom: 0;
-  border-top: 1px solid #A6A6A6;
   padding: 20px;
   overflow: auto;
   @media (max-width: $break-med) {
-    background: $lt-blue;
-    border-top: none;
     padding: 10px 20px;
   }
 }
@@ -57,7 +54,7 @@ body {
 .contact {
   margin-top: 8px;
   float: left;
-  border-left: 1px solid #A6A6A6;
+  border-left: 1px solid $dk-blue;
   padding-left: 22px;
   @media (max-width: $break-med) {
     position: relative;
@@ -68,12 +65,11 @@ body {
   }
 
   .small-text {
-    color: #A6A6A6;
+    color: $dk-blue;
     margin: .5em 0;
     font-weight: 500;
     display: block;
     @media (max-width: $break-med) {
-      color: $dk-blue;
       float: left;
       max-width: 65%;
       padding: 0 .25em;
@@ -114,7 +110,6 @@ body {
 
   p {
     float: left;
-    color: #A6A6A6;
     margin: .55em .65em .65em;
     font-weight: 500;
   }
