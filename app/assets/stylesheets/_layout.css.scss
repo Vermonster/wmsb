@@ -65,9 +65,7 @@ body {
   }
 
   .small-text {
-    color: $dk-blue;
     margin: .5em 0;
-    font-weight: 500;
     display: block;
     @media (max-width: $break-med) {
       float: left;
