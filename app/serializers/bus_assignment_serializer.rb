@@ -18,7 +18,7 @@ class BusAssignmentSerializer < ActiveModel::Serializer
   end
 
   def last_updated_at
-    object.last_updated_at.strftime('%B %e, %l:%M %P')
+    object.last_updated_at.strftime('%b %e, %l:%M %P')
   end
 
   def destination
