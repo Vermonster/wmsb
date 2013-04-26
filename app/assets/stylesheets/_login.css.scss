@@ -109,6 +109,7 @@
     color: $dk-blue;
     font-weight: 700;
     padding-bottom: .35em;
+    -webkit-appearance: none;
     &:hover {
       background: $lt-blue;
       cursor: pointer;
