@@ -8,10 +8,21 @@
       padding: 0 .65em;
       font-size: .875em;
     }
-    @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
+    @media (max-width: $break-med) and (min-width: $break-sm-landscape - 1) {
       margin-top: 0;
       h2 {
         font-size: .875em;
+      }
+    }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      padding: 0 .25em 0 0;
+      margin: 0;
+      h4 {
+        margin: 0;
+        font-size: .15em;
+      }
+      h2 {
+        font-size: .5em;
       }
     }
   }
@@ -60,7 +71,7 @@
     margin: .5em 0;
     cursor: pointer;
     &:hover {
-      color: $lt-blue;
+      color: $yellow;
     }
   }
 }
@@ -74,6 +85,10 @@
 
 .selected-student {
   overflow: hidden;
+  border-radius: 15px;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    margin-right: .25em;
+  }
 
   h2 {
     margin-bottom: 0;
@@ -89,6 +104,16 @@
     @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
       width: 5em; 
     }
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      width: 5em;
+      font-size: .5em;
+    }
+  }
+
+  .icon-down-dir {
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+      font-size: .75em;
+    }    
   }
 }
 
@@ -96,6 +121,15 @@
   @media (max-width: $break-sm-landscape - 1) {
     width: 100%;
     overflow: hidden;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    width: auto;
+    h2 {
+      font-size: .4em;
+    }
+    h4 {
+      font-size: .5em;
+    }
   }
 }
 
@@ -105,6 +139,7 @@
   background: $dk-blue;
   color: $green;
   text-decoration: none;
+  text-align: center;
   padding: 0.3em 1em .415em;
   margin: 1.875em 1em 1em;
   font-weight: 700;
@@ -121,5 +156,8 @@
     width: 35px;
     font-size: 1em;
     padding: .3em 1.5em .4em .75em;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    font-size: .5em;
   }
 }

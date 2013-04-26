@@ -15,16 +15,20 @@ body {
 #header {
   background: $green;
   overflow: hidden;
-  min-height: 90px;
+  min-height: 77px;
   @media (max-width: $break-med) {
     min-height: 40px;
     padding: 1em;
   }
   @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
     padding: .75em .5em;
-    min-height: 33px;
+    min-height: 45px;
   }
   @media(max-width: $break-sm) {
+    min-height: 25px;
+  }
+  @media (max-width: $break-med) and (min-width: $break-sm), (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    padding: .5em .25em;
     min-height: 25px;
   }
 }
@@ -48,10 +52,13 @@ body {
   background: $lt-blue;
   position: fixed;
   bottom: 0;
-  padding: 20px;
+  padding: 6px 20px 12px;
   overflow: auto;
   @media (max-width: $break-med) {
     padding: 5px 20px;
+  }
+  @media (max-width: $break-sm-landscape) and (orientation : landscape) {
+    display: none;
   }
 }
 
@@ -120,7 +127,6 @@ body {
   }
 
   .vermonster-logo {
-    display: block;
     float: left;
     background-image: image-url('vermonster-logo.svg');
     background-position: left top;
@@ -135,10 +141,8 @@ body {
 }
 
 .bps-logo {
-  display: block;
   background-image: image-url('bps-logo-2.svg');
   background-position: left top;
-  background-size: 125px 140px;
   width: 126px;
   height: 70px;
   float: left;
