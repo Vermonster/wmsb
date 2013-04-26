@@ -77,11 +77,14 @@
   }
 
   .error {
-    display: block;
-    color: $lt-blue;
+    color: #4c81a5;
     font-size: 0.7em;
     font-family: $font-h;
     margin-top: .25em;
+
+    &:first-letter {
+      text-transform: uppercase;
+    }
   }
 
   input {
