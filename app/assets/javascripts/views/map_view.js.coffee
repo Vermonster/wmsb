@@ -1,8 +1,8 @@
 assignmentList = _.template """
-<div class="header-info header-info-first student">
+<div class="header-info student">
   <h4 class="small-text">Student:</h4>
   <div class="selected-student">
-    <span class="name"><h2><%= current.escape("student_name") %></h2></span>
+    <h2 class="name"><%= current.escape("student_name") %></h2>
     <span class="icon-down-dir"></span>
   </div>
   <ul class="student-names closed">

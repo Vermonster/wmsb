@@ -22,7 +22,7 @@
     margin-bottom: 0;
   }
 
-  .header-info-first {
+  .student {
     border: none;
     @media (max-width: $break-med) {
       font-size: 1em;
@@ -89,18 +89,18 @@
 
 .close-session {
   float: right;
-  @extend .selected-student;
+  border-radius: 15px;
   background: $dk-blue;
   color: $green;
   text-decoration: none;
   padding: 0.3em 1em .415em;
   margin: 1.875em 1em 1em;
   font-weight: 700;
+  overflow: hidden;
 
   &:hover {
     background: $grey;
     color: $dk-blue;
-    cursor: pointer;
   }
   @media (max-width: $break-med) {
     margin: 0;
