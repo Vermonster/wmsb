@@ -93,6 +93,10 @@
     font-size: 1em;
     font-weight: 700;
     outline: none;
+    &:focus {
+      background: #FFF;
+      border: 2px $lt-blue solid;
+    }
   }
 
   select {
