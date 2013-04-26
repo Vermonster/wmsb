@@ -104,7 +104,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       position: center
       map: @map
       title: @collection.current().get 'student_name'
-      icon: '/assets/bus-marker.png'
+      icon: '/assets/bus-marker.svg'
       zIndex: google.maps.Marker.MAX_ZINDEX
 
     @map.setCenter center
