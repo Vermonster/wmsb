@@ -126,6 +126,9 @@
       background: $lt-blue;
       cursor: pointer;
     }
+    &:active {
+      background: #3d94c4;
+    }
     @media (max-width: $break-med) {
       width: 75%;
       background: $green;
