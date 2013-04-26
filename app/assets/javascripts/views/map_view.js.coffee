@@ -83,7 +83,7 @@ Wmsb.Views.MapView = Backbone.View.extend
   renderMarker: ->
     @marker?.setMap null
 
-    if @points.length is not 0
+    if @points.length != 0
       _.each @points, (point) ->
         point.setMap null
 
