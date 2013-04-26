@@ -7,7 +7,7 @@
   z-index: 999;
   margin: 0 auto;
   left: -10px;
-  top: -70px;
+  top: -60px;
   @media (max-width: $break-med) {
     top: -60px;
     left: 0;
@@ -61,15 +61,21 @@
   }
 
   .input.contact_id_family_name {
-    padding-top: 91px;
+    padding-top: 99px;
   }
 
   label {
     display: block;
+    @media(max-width: $break-sm) {
+      font-size: .875em;
+    }
   }
 
   .input {
     height: 80px;
+    @media(max-width: $break-sm) {
+      height: 75px;
+    }
   }
 
   .error {
@@ -77,6 +83,7 @@
     color: $lt-blue;
     font-size: 0.7em;
     font-family: $font-h;
+    margin-top: .25em;
   }
 
   input {
