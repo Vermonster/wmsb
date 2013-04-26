@@ -120,7 +120,7 @@ Wmsb.Views.MapView = Backbone.View.extend
         if response.status == 401
           Wmsb.notice 'Your session has expired. You will be signed out shortly.'
           setTimeout (-> window.location.pathname = ''), 5000
-        else
+        else if response.status != 0 # 0 is from a user-generated page refresh
           Wmsb.notice 'There was a problem updating the bus location. Refresh the page or sign in again.'
 
   changeSelectedAssignment: (event) ->
