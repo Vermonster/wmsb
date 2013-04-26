@@ -64,6 +64,10 @@ body {
     width: 100%;
   }
 
+  a:hover {
+    color: $grey;
+  }
+
   .small-text {
     margin: .5em 0;
     display: block;
@@ -72,10 +76,6 @@ body {
       max-width: 65%;
       padding: 0 .25em;
       margin: 0;
-    }
-
-    &:hover {
-      color: $grey;
     }
 
     &:first-child {
