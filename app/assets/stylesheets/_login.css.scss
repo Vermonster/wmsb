@@ -12,7 +12,7 @@
     top: -60px;
     left: 0;
   }
-  @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
+  @media (max-width: $break-med - 1) and (min-width: $break-sm-landscape) {
     width: 300px;
     top: -45px;
   }

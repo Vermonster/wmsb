@@ -18,7 +18,7 @@
       padding: 0 .25em 0 0;
       margin: 0;
       h4 {
-        margin: 0;
+        margin: 1em 0 .5em;
         font-size: .15em;
       }
       h2 {
@@ -86,8 +86,11 @@
 .selected-student {
   overflow: hidden;
   border-radius: 15px;
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    margin-right: .25em;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
+    font-size: 2.25em;
+    padding-bottom: .375em;
+    height: 20px;
+    border-radius: 25px;
   }
 
   h2 {
@@ -101,12 +104,11 @@
     white-space: nowrap;
     float: left;
     width: 10em;
-    @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
-      width: 5em; 
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
+      max-width: 8em;
     }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      width: 5em;
-      font-size: .5em;
+    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 525px) {
+      max-width: 5em;
     }
   }
 
@@ -118,18 +120,21 @@
 }
 
 .header-details {
+  float: left;
   @media (max-width: $break-sm-landscape - 1) {
     width: 100%;
-    overflow: hidden;
   }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm) {
+    width: 100%;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
+    width: 100%;    
+    font-size: 1.875em;
+    margin: .25em 0 .25em .125em;
+  }
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: $break-sm-landscape) {
     width: auto;
-    h2 {
-      font-size: .4em;
-    }
-    h4 {
-      font-size: .5em;
-    }
+    margin: 0 0 .25em .5em;
   }
 }
 
@@ -141,7 +146,7 @@
   text-decoration: none;
   text-align: center;
   padding: 0.3em 1em .415em;
-  margin: 1.875em 1em 1em;
+  margin: .95em 1em 1em;
   font-weight: 700;
   overflow: hidden;
 
@@ -153,11 +158,13 @@
     margin: 0;
   }
   @media (max-width: $break-xsm) {
-    width: 35px;
     font-size: 1em;
     padding: .3em 1.5em .4em .75em;
   }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-    font-size: .5em;
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-med) {
+    font-size: 1.125em;
+    padding: .5em 1em 0;
+    height: 35px;
+    border-radius: 25px;
   }
 }
