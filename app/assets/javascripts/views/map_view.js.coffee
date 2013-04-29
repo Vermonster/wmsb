@@ -71,7 +71,7 @@ Wmsb.Views.MapView = Backbone.View.extend
       zoom: 14
       mapTypeId: google.maps.MapTypeId.ROADMAP
       disableDefaultUI: true
-      panControl: true
+      panControl: !Modernizr.touch
       zoomControl: true
     }
     @map.mapTypes.set 'wmsb', @styledMap()
