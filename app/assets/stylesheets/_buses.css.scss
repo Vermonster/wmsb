@@ -65,12 +65,15 @@
   }
 }
 
-.selected-student {
+.select-students {
   background: $grey;
-  padding: .25em .25em .25em .5em;
-  cursor: pointer;
-  overflow: hidden;
   border-radius: 15px;
+  cursor: pointer;
+  padding: .25em .25em .25em .5em;
+}
+
+.selected-student {
+  overflow: hidden;
 
   h2 {
     margin-bottom: 0;

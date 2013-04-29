@@ -58,4 +58,16 @@ feature 'View buses', js: true do
     page.should have_content 'Bus number: 2'
     page.should_not have_student_names_list
   end
+
+  it 'does not present a selector for one student' do
+    assignment = bus_assignments_response(student_number: '123')
+    stub_assignments_api [200, {}, ]
+    stub_zonar_history_api [200, {}, [bus_history_response]]
+
+    sign_in student_number: '123'
+
+    current_path.should eq buses_path
+
+    page.should_not have_css '.select-students'
+  end
 end

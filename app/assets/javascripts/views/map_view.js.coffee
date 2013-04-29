@@ -1,9 +1,11 @@
 assignmentList = _.template """
 <div class="header-info student">
   <h4 class="small-text">Student:</h4>
-  <div class="selected-student">
+  <div class="<%= collection.length > 1 ? 'select-students' : '' %> selected-student">
     <h2 class="name"><%= current.escape("student_name") %></h2>
-    <span class="icon-down-dir"></span>
+    <% if ( collection.length > 1 ) { %>
+      <span class="icon-down-dir"></span>
+    <% } %>
   </div>
   <ul class="student-names closed">
     <% collection.each(function(assignment) { %>
@@ -29,7 +31,7 @@ assignmentList = _.template """
 
 Wmsb.Views.MapView = Backbone.View.extend
   events:
-    'click .selected-student': 'toggleAssignmentList'
+    'click .select-students': 'toggleAssignmentList'
     'click .student-name': 'changeSelectedAssignment'
 
   styles: [
