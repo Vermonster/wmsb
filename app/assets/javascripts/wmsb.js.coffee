@@ -14,10 +14,13 @@ $ ->
   $header = $ '#header'
   $footer = $ '.footer'
 
+  parsePadding = ($el, side) ->
+    parseInt($el.css("padding-#{side}"), 10)
+
   updateMapHeight = ->
     # 20px padding on the top and bottom of the footer is not taken into
     # account when using box-sizing: border-box
-    $canvas.height $(window).height() - $header.height() - $footer.height() - 40
+    $canvas.height $(window).height() - $header.height() - $footer.height() - parsePadding($header, 'top') - parsePadding($header, 'bottom') - parsePadding($footer, 'top') - parsePadding($footer, 'bottom')
 
   initialize = ->
     tmp = document.createElement 'div'
