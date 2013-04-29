@@ -34,34 +34,6 @@
     width: auto;
   }
 
-  &:before {
-    position: absolute;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    border-left: 50px solid transparent;
-    border-right: 50px solid transparent;
-    border-top: 100px solid $dk-blue;
-    margin: 20px auto;
-    top: 355px;
-    left: 157px;
-    content: '';
-    @media (max-width: $break-med) {
-      display: none;
-    }
-  }
-
-  &:after {
-    position: absolute;
-    display: inline-block;
-    border-bottom: none;
-    border-top: 100px solid $dk-blue;
-    content: '';
-    @media (max-width: $break-med) {
-      display: none;
-    }
-  }
-
   .input.contact_id_family_name {
     padding-top: 89px;
   }
