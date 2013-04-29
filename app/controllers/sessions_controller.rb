@@ -11,8 +11,7 @@ class SessionsController < ApplicationController
     if @session.valid? && @session.authenticate!
       cookies[:current_assignment] = {
         value: Digest::SHA512.hexdigest(@session.student_number),
-        secure: true,
-        path: buses_path
+        secure: true
       }
 
       session[:contact_id]   = @session.contact_id
