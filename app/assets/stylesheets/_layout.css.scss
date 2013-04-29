@@ -52,10 +52,8 @@ body {
   background: $lt-blue;
   position: fixed;
   bottom: 0;
-  padding: 6px 20px 12px;
   overflow: auto;
   @media (max-width: $break-med) {
-    padding: 5px 20px;
   }
   @media (max-width: $break-sm-landscape) and (orientation : landscape) {
     display: none;
@@ -63,7 +61,7 @@ body {
 }
 
 .contact {
-  margin-top: 8px;
+  margin: 21px 15px 15px;
   float: left;
   border-left: 1px solid $dk-blue;
   padding-left: 22px;
@@ -71,11 +69,10 @@ body {
     position: relative;
     border-left: none;
     padding-left: 0;
-    margin-top: 0;
-    width: 100%;
+    margin: 6px 15px 6px 9px;
   }
 
-  a:hover {
+  & a:hover {
     color: $grey;
   }
 
@@ -84,21 +81,23 @@ body {
     display: block;
     @media (max-width: $break-med) {
       float: left;
-      max-width: 65%;
-      padding: 0 .25em;
+      /*max-width: 65%;*/
       margin: 0;
       &:first-child {
-        margin-top: .25em;
+        margin-top: .5em;
       }
     }
 
     &:first-child {
       font-weight: 700;
+      @media (max-width: $break-med) {
+        margin-top: .5em;
+      }
     }
   }
   @media (max-width: $break-med) {
     .icon-contact {
-      font-size: 1.5em;
+      font-size: 1em;
       float: right;
       margin-left: .375em;
     }
@@ -115,11 +114,11 @@ body {
 
 .credit {
   float: right;
-  margin-top: 42px;
+  margin-top: 61px;
 
   p {
     float: left;
-    margin: .55em .65em .65em;
+    margin: .6em .65em .65em;
     font-weight: 500;
   }
 
@@ -132,6 +131,7 @@ body {
   }
 
   .vermonster-logo {
+    margin-right: 15px;
     float: left;
     background-image: image-url('vermonster-logo.svg');
     background-position: left top;
@@ -146,6 +146,9 @@ body {
       background-position: left bottom;
     }
   }
+  @media (max-width: $break-med) {
+    margin: 5px .25em 0 0;
+  }
 }
 
 .bps-logo {
@@ -154,7 +157,7 @@ body {
   width: 126px;
   height: 70px;
   float: left;
-  margin-right: 15px;
+  margin: 9px 15px 18px;
   @media (max-width: $break-med) {
     display: none;
   }
