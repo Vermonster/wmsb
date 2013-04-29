@@ -116,14 +116,19 @@ body {
 .credit {
   float: right;
   margin-top: 42px;
-  @media (max-width: $break-med) {
-    display: none;
-  }
 
   p {
     float: left;
     margin: .55em .65em .65em;
     font-weight: 500;
+  }
+
+  a.vermonster-text {
+    font-weight: 700;
+    margin: .65em .65em .65em -.5em;
+    @media (min-width: $break-med + 1) {
+      display: none;
+    }
   }
 
   .vermonster-logo {
@@ -133,6 +138,9 @@ body {
     background-size: 123px, 34px;
     width: 123px;
     height: 17px;
+    @media (max-width: $break-med) {
+      display: none;
+    }
 
     &:hover {
       background-position: left bottom;
