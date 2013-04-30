@@ -58,10 +58,10 @@
   list-style: none;
   background: $dk-blue;
   padding: 1em;
-  border-radius: 15px;
+  border-radius: 25px;
   box-shadow: 1px 3px 5px rgba(0, 0, 0, .5);
   margin-top: 0;
-  width: 10.875em;
+  width: 11.125em;
 
   .student-name {
     color: $green;
@@ -79,7 +79,7 @@
 
 .select-students {
   background: $grey;
-  border-radius: 15px;
+  border-radius: 20px;
   cursor: pointer;
   padding: .25em .25em .25em .5em;
 }
@@ -87,7 +87,7 @@
 .selected-student {
   overflow: hidden;
   height: 33px;
-  border-radius: 25px;
+  border-radius: 20px;
   padding: .65em .25em 0 .75em;
 
   @media (min-width: $break-med + 1) {
