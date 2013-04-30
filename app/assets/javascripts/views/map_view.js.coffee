@@ -2,7 +2,7 @@ assignmentList = _.template """
 <div class="header-info student">
   <h4 class="small-text">Student:</h4>
   <div class="<%= collection.length > 1 ? 'select-students' : '' %> selected-student">
-    <h2 class="name"><%= current.escape("student_name") %></h2>
+    <div class="name"><%= current.escape("student_name") %></div>
     <% if ( collection.length > 1 ) { %>
       <span class="icon-down-dir"></span>
     <% } %>
