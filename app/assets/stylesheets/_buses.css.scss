@@ -1,30 +1,23 @@
 #bus-view {
+
   .header-info {
     margin: .875em 0;
     padding: 0 .75em .5em;
     float: left;
+
     @media (max-width: $break-med) {
-      margin: .75em 0 0;
-      padding: 0 .65em;
+      margin: 0;
+      padding: .675em .5em 0 0;
       font-size: .875em;
     }
-    @media (max-width: $break-med) and (min-width: $break-sm-landscape - 1) {
+
+    @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
       margin-top: 0;
       h2 {
         font-size: .875em;
       }
     }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      padding: 0 .25em 0 0;
-      margin: 0;
-      h4 {
-        margin: 1em 0 .5em;
-        font-size: .15em;
-      }
-      h2 {
-        font-size: .5em;
-      }
-    }
+
   }
 
   h4, h2 {
@@ -64,15 +57,18 @@
   box-shadow: 1px 3px 5px rgba(0, 0, 0, .5);
   margin-top: 0;
   width: 10.875em;
+
   .student-name {
     color: $green;
     font-size: 1em;
     font-weight: 700;
     margin: .5em 0;
     cursor: pointer;
+
     &:hover {
       color: $yellow;
     }
+
   }
 }
 
@@ -85,57 +81,42 @@
 
 .selected-student {
   overflow: hidden;
-  border-radius: 15px;
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
-    font-size: 2.25em;
-    padding-bottom: .375em;
-    height: 20px;
-    border-radius: 25px;
-  }
+  height: 33px;
+  border-radius: 25px;
+  padding: .65em .25em 0 .75em;
 
-  h2 {
+  .name {
     margin-bottom: 0;
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-  }
-
-  .name {
-    white-space: nowrap;
     float: left;
-    width: 10em;
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
-      max-width: 8em;
-    }
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: 480px) and (max-width: 525px) {
+    font-weight: 700;
+    color: $dk-blue;
+    width: 8em;
+
+    @media (min-width: $break-sm-landscape) and (max-width: 525px) {
       max-width: 5em;
     }
-  }
 
-  .icon-down-dir {
-    @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
-      font-size: .75em;
-    }    
   }
 }
 
 .header-details {
+  overflow: hidden;
   float: left;
+
   @media (max-width: $break-sm-landscape - 1) {
-    width: 100%;
-  }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm) {
-    width: 100%;
-  }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-sm-landscape - 1) {
     width: 100%;    
-    font-size: 1.875em;
+    float: none;
     margin: .25em 0 .25em .125em;
   }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (min-width: $break-sm-landscape) {
+
+  @media (min-width: $break-sm-landscape) {
     width: auto;
     margin: 0 0 .25em .5em;
   }
+
 }
 
 .close-session {
@@ -145,26 +126,30 @@
   color: $green;
   text-decoration: none;
   text-align: center;
-  padding: 0.3em 1em .415em;
-  margin: .95em 1em 1em;
+  margin: 1.6em 1em 1em 0;
   font-weight: 700;
   overflow: hidden;
+  font-size: 1.125em;
+  padding: .5em 1em 0;
+  height: 35px;
+  border-radius: 25px;
 
   &:hover {
     background: $grey;
     color: $dk-blue;
   }
-  @media (max-width: $break-med) {
-    margin: 0;
-  }
+
   @media (max-width: $break-xsm) {
     font-size: 1em;
     padding: .3em 1.5em .4em .75em;
   }
-  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) and (max-width: $break-med) {
+
+  @media (max-width: $break-med) {
     font-size: 1.125em;
     padding: .5em 1em 0;
     height: 35px;
     border-radius: 25px;
+    margin: 0;
   }
+
 }

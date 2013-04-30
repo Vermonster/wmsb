@@ -8,14 +8,11 @@
   margin: 0 auto;
   left: -10px;
   top: -58px;
+
   @media (max-width: $break-med) {
-    top: -60px;
     left: 0;
   }
-  @media (max-width: $break-med - 1) and (min-width: $break-sm-landscape) {
-    width: 300px;
-    top: -45px;
-  }
+
   @media (max-width: $break-sm) {
     width: 265px;
     top: -35px;
@@ -29,17 +26,19 @@
   margin: -138px auto 0;
   text-align: center;
   position: relative;
+
   @media (max-width: $break-med) {
     background: none;
     width: auto;
   }
 
   .input.contact_id_family_name {
-    padding-top: 89px;
+    padding-top: 99px;
   }
 
   label {
     display: block;
+
     @media(max-width: $break-sm) {
       font-size: .875em;
     }
@@ -47,6 +46,7 @@
 
   .input {
     height: 80px;
+
     @media(max-width: $break-sm) {
       height: 75px;
     }
@@ -98,13 +98,16 @@
     font-weight: 700;
     padding-bottom: .35em;
     -webkit-appearance: none;
+
     &:hover {
       background: $lt-blue;
       cursor: pointer;
     }
+
     &:active {
       background: #3d94c4;
     }
+
     @media (max-width: $break-med) {
       width: 75%;
     }
