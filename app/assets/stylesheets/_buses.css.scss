@@ -13,8 +13,11 @@
 
     @media (max-width: $break-med) and (min-width: $break-sm-landscape) {
       margin-top: 0;
+      padding-top: .5em;
+
       h2 {
         font-size: .875em;
+        margin-top: 0;
       }
     }
 
@@ -30,6 +33,7 @@
 
   h2 {
     margin-bottom: 0;
+    margin-top: .45em;
   }
 
   .student {
@@ -39,6 +43,7 @@
       margin: 0;
       padding: 0;
     }
+
     h4 {
       @media (max-width: $break-med) {
         display: none;
@@ -85,6 +90,12 @@
   border-radius: 25px;
   padding: .65em .25em 0 .75em;
 
+  @media (min-width: $break-med + 1) {
+    height: 23px;
+    border-radius: 25px;
+    padding: .25em .25em .3em .75em;
+  }
+
   .name {
     margin-bottom: 0;
     white-space: nowrap;
@@ -93,12 +104,16 @@
     float: left;
     font-weight: 700;
     color: $dk-blue;
-    width: 8em;
+    width: 10em;
 
     @media (min-width: $break-sm-landscape) and (max-width: 525px) {
       max-width: 5em;
     }
 
+    @media (max-width: $break-med) and (min-width: 526px) {
+      width: 8em;
+      margin-right: .5em;
+    }
   }
 }
 
@@ -116,12 +131,10 @@
     width: auto;
     margin: 0 0 .25em .5em;
   }
-
 }
 
 .close-session {
   float: right;
-  border-radius: 15px;
   background: $dk-blue;
   color: $green;
   text-decoration: none;
@@ -129,10 +142,11 @@
   margin: 1.6em 1em 1em 0;
   font-weight: 700;
   overflow: hidden;
-  font-size: 1.125em;
-  padding: .5em 1em 0;
-  height: 35px;
+  height: 23px;
   border-radius: 25px;
+  padding: .25em 1em .35em;
+  margin: 1.875em 1em 0 0;
+  font-size: 1em;
 
   &:hover {
     background: $grey;
@@ -145,11 +159,8 @@
   }
 
   @media (max-width: $break-med) {
-    font-size: 1.125em;
-    padding: .5em 1em 0;
-    height: 35px;
-    border-radius: 25px;
+    padding: .65em 1em 0;
+    height: 33px;
     margin: 0;
   }
-
 }
