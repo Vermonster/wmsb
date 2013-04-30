@@ -21,6 +21,11 @@
       }
     }
 
+    @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+      margin-left: .5em;
+    }
+
+
   }
 
   h4, h2 {
@@ -34,6 +39,9 @@
   h2 {
     margin-bottom: 0;
     margin-top: .45em;
+    @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+      margin-top: 0;
+    }
   }
 
   .student {
@@ -96,6 +104,10 @@
     padding: .25em .25em .3em .75em;
   }
 
+  @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+    margin-left: .5em;
+  }
+
   .name {
     margin-bottom: 0;
     white-space: nowrap;
@@ -131,6 +143,12 @@
     width: auto;
     margin: 0 0 .25em .5em;
   }
+
+  @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+    background: #afddd2;
+    padding: 0 0 .25em;
+    margin-top: .5em;
+  }
 }
 
 .close-session {
@@ -162,5 +180,9 @@
     padding: .65em 1em 0;
     height: 33px;
     margin: 0;
+  }
+
+  @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+    margin-right: .5em;
   }
 }

@@ -19,6 +19,11 @@ body {
   @media (max-width: $break-med) {
     padding: .75em .5em;
   }
+
+  @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
+    padding: .75em 0 0;
+  }
+
 }
 
 #header-login {
