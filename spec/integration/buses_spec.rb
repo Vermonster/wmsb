@@ -43,7 +43,7 @@ feature 'View buses', js: true do
     current_path.should eq buses_path
 
     page.should have_selected_student 'Aria Stark'
-    page.should have_content 'October 30, 10:30 am'
+    page.should have_content 'Oct 30, 10:30 am'
     page.should have_content 'Bus number: 1'
     page.should_not have_student_names_list
 
@@ -54,7 +54,7 @@ feature 'View buses', js: true do
     end
 
     page.should have_selected_student 'Sansa Stark'
-    page.should have_content 'October 30, 10:45 am'
+    page.should have_content 'Oct 30, 10:45 am'
     page.should have_content 'Bus number: 2'
     page.should_not have_student_names_list
   end
