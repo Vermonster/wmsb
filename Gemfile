@@ -7,6 +7,7 @@ gem 'active_model_serializers'
 gem 'unicorn'
 gem 'dalli'
 gem 'simple_form'
+gem 'rack-cache'
 
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
