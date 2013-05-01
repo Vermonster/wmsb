@@ -74,5 +74,10 @@ module Wmsb
 
     # Force SSL
     config.force_ssl = true
+
+    #
+
+
+    config.middleware.use Rack::Deflater
   end
 end
