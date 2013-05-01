@@ -9,7 +9,10 @@ Wmsb::Application.configure do
   config.action_controller.perform_caching = true
 
   # Disable Rails's static asset server (Apache or nginx will already do this)
-  config.serve_static_assets = false
+  config.serve_static_assets = true
+
+  # Assets are good for one month
+  config.static_cache_control = 'public, max-age=2592000'
 
   # Compress JavaScripts and CSS
   config.assets.compress = true
