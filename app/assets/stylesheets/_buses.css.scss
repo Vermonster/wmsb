@@ -136,7 +136,8 @@
   @media (max-width: $break-sm-landscape - 1) {
     width: 100%;    
     float: none;
-    margin: .25em 0 .25em .125em;
+    margin: .25em 0 0 0;
+    padding-left: .25em;
   }
 
   @media (min-width: $break-sm-landscape) {
@@ -145,9 +146,19 @@
   }
 
   @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
-    background: #afddd2;
-    padding: 0 0 .25em;
+    background: #34495d;
+    padding: 0 0 .5em .25em;
     margin-top: .5em;
+    h2, h4 {
+      font-family: $font-h;
+      color: $green;
+    }
+    h2 {
+      font-weight: 700;
+    }
+    h4 {
+      font-weight: 500;
+    }
   }
 }
 
@@ -184,5 +195,6 @@
 
   @media (max-width: $break-sm-landscape - 1) and (orientation : portrait) {
     margin-right: .5em;
+    margin-bottom: .75em;
   }
 }
