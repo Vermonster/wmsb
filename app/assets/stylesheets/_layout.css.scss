@@ -65,11 +65,47 @@ body {
   }
 }
 
+.survey {
+  width: 100%;
+  background: $green;
+  padding: .125em;
+  color: $green;
+  text-align: center;
+  overflow: hidden;
+  box-shadow: 0px -6px 4px #000;
+  .survey-content {
+    margin: 0 auto;
+    width: 140px;
+    overflow: hidden;
+  }
+  a {
+    color: $dk-blue;
+    font-family: $font-e;
+    font-weight: 700;
+    font-size: .875em;
+    float: left;
+  }
+  .circle {
+    border: 1px $dk-blue solid;
+    border-radius: 15px;
+    margin: .125em .5em;
+    height: .75em;
+    width: .775em;
+    float: left;
+    color: $dk-blue;
+    position: relative;
+    .icon-right-open-mini {
+      position: absolute;
+      top: -5px;
+      right: -6px;
+    }
+  }
+}
+
 .contact {
   margin: 21px 15px 15px;
   float: left;
   border-left: 1px solid $dk-blue;
-  padding-left: 22px;
 
   @media (max-width: $break-med) {
     position: relative;
