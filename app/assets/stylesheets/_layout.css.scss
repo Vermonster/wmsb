@@ -57,7 +57,6 @@ body {
   background: $lt-blue;
   position: fixed;
   bottom: 0;
-  overflow: auto;
 
   @media (max-width: $break-sm-landscape) and (orientation : landscape) {
     display: none;
@@ -72,7 +71,6 @@ body {
   color: $green;
   text-align: center;
   overflow: hidden;
-  box-shadow: 0px -6px 4px #000;
   .survey-content {
     margin: 0 auto;
     width: 140px;
