@@ -40,3 +40,5 @@
         %p.small-text Built by
         %a.small-text.vermonster-text{href: "http://www.vermonster.com/", target: "_blank"} Vermonster
         %a.vermonster-logo{href: "http://www.vermonster.com/", target: "_blank"}
+    - if GOOGLE_ANALYTICS
+      = render 'layouts/google_analytics'
