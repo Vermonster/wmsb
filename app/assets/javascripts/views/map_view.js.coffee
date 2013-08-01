@@ -49,6 +49,10 @@ Wmsb.Views.MapView = Backbone.View.extend
   styledMap: ->
     new google.maps.StyledMapType @styles, name: 'Boston Public Schools'
 
+  mapCenter: ->
+    current = @collection.current()
+    if current? then current.get('latLng') else new google.maps.LatLng(42.3583, -71.0603)
+
   initialize: (options) ->
     _.bindAll this
 
@@ -67,7 +71,7 @@ Wmsb.Views.MapView = Backbone.View.extend
 
   renderMap: ->
     @map = new google.maps.Map @mapEl, {
-      center: @collection.current().get('latLng')
+      center: @mapCenter()
       zoom: 14
       mapTypeId: google.maps.MapTypeId.ROADMAP
       disableDefaultUI: true

@@ -134,7 +134,7 @@
   float: left;
 
   @media (max-width: $break-sm-landscape - 1) {
-    width: 100%;    
+    width: 100%;
     float: none;
     margin: .25em 0 0 0;
     padding-left: .25em;
@@ -174,7 +174,7 @@
   height: 23px;
   border-radius: 25px;
   padding: .25em 1em .35em;
-  margin: 1.875em 1em 0 0;
+  margin: 1.875em 1em 1.875em 0;
   font-size: 1em;
 
   &:hover {

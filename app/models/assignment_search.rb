@@ -1,5 +1,5 @@
 class AssignmentSearch
-  extend ActiveModel::Naming
+  extend ActiveModel::Translation
 
   class_attribute :connection, instance_writer: false
   self.connection = Faraday.new(ENV['BPS_API'])

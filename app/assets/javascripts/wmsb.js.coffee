@@ -32,7 +32,10 @@ $ ->
       collection: assignments
       el: $ 'body'
 
-    view.render()
+    if view.collection.current()?
+      view.render()
+    else
+      view.renderMap()
 
   if $canvas.length
     $(window).on 'resize', updateMapHeight
