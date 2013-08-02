@@ -9,15 +9,11 @@ class SessionsController < ApplicationController
     @session = ContactId.new(params[:contact_id])
 
     if @session.valid? && @session.authenticate!
-      cookies[:current_assignment] = {
-        value: Digest::SHA512.hexdigest(@session.student_number),
-        secure: true
-      }
-
       session[:contact_id]   = @session.contact_id
       session[:signed_in_at] = Time.zone.now.to_s
+      session[:current_assignment] = Digest::SHA512.hexdigest(@session.student_number).first(20)
 
-      redirect_to :buses
+      redirect_to buses_path(anchor: session[:current_assignment])
     else
       flash.now.alert = 'There was a problem signing you in.'
       render :new
@@ -25,7 +21,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    cookies.delete(:current_assignment)
+    session.delete(:current_assignment)
     session.delete(:contact_id)
     session.delete(:signed_in_at)
 
@@ -36,7 +32,7 @@ class SessionsController < ApplicationController
 
   def redirect_to_buses
     if session_exists? && !session_expired?
-      redirect_to :buses
+      redirect_to buses_path(anchor: session[:current_assignment])
     end
   end
 end

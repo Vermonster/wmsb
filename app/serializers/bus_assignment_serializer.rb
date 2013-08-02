@@ -14,7 +14,7 @@ class BusAssignmentSerializer < ActiveModel::Serializer
              :history
 
   def token
-    Digest::SHA512.hexdigest(object.student_number)
+    Digest::SHA512.hexdigest(object.student_number).first(20)
   end
 
   def last_updated_at

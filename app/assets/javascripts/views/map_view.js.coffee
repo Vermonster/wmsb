@@ -134,6 +134,6 @@ Wmsb.Views.MapView = Backbone.View.extend
     assignment = @collection.find (assignment) ->
       assignment.get('student_name') is event.target.innerHTML
 
-    cookie.set 'current_assignment', assignment.get('token')
+    window.location.hash = assignment.get('token')
 
     @render()
