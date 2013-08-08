@@ -27,7 +27,7 @@ class AssignmentSearch
       )
 
       if !response.success?
-        @errors.add(:assignments, "could not be retreived (#{response.status})")
+        @errors.add(:assignments, :missing)
       end
 
       response.success? ? response.body : nil
@@ -41,6 +41,8 @@ class AssignmentSearch
 
     return self
   end
+
+  alias :read_attribute_for_validation :send
 
   private
 

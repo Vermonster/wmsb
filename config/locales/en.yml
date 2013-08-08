@@ -9,3 +9,9 @@ en:
     errors:
       messages:
         blank: 'must be entered'
+      models:
+        assignment_search:
+          attributes:
+            assignments:
+              missing: |
+                We're sorry, but we cannot find a bus assignment for your student at this time.  Please inquire at your school or call the BPS Transportation Department Call Center at 617-635-9520 to see when and if an assignment will take effect.  You may also contact us by email at schoolbus@bostonpublicschools.org.

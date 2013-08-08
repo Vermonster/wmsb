@@ -6,7 +6,7 @@ class BusesController < ApplicationController
     search = AssignmentSearch.find(session[:contact_id])
 
     if search.errors.any?
-      flash.now.alert = search.errors.full_messages.first
+      flash.now.alert = search.errors.messages.values.flatten.first
     end
 
     assignments = search.assignments || []
