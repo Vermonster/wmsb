@@ -1,1 +1,1 @@
-web: bundle exec unicorn_rails -c ./config/unicorn.rb -E $RAILS_ENV -p $PORT
+web: bundle exec puma -p $PORT -e ${RAILS_ENV:-development} -t 8:32
