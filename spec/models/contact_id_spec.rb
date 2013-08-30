@@ -39,15 +39,5 @@ describe ContactId do
       contact_id.contact_id.should be_blank
       contact_id.errors.should have_key :aspen_contact_id
     end
-
-    it 'handles invalid (non-numeric) aspen_contact_ids' do
-      stub_contact_id_api [200, {}, '"758a94"']
-
-      contact_id = generate_contact_id
-      contact_id.authenticate!
-
-      contact_id.contact_id.should be_blank
-      contact_id.errors.should have_key :aspen_contact_id
-    end
   end
 end

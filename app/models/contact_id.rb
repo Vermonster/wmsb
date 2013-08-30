@@ -29,18 +29,13 @@ class ContactId
       Password: password
     )
 
-    if !response.success?
-      @errors.add(:aspen_contact_id, "could not be retreived (#{response.status})")
-      @contact_id = ''
-    elsif response.body !~ /\A"\d+"\z/
-      # Verify the response is a number since we cannot validate it is proper
-      # JSON
-      @errors.add(:aspen_contact_id, "is not an integer (#{response.body})")
-      @contact_id = ''
-    else
+    if response.success?
       # The response is not a proper JSON object so JSON.parse('"000"') will
       # choke. Remove the quotes.
       @contact_id = response.body.gsub('"', '')
+    else
+      @errors.add(:aspen_contact_id, "could not be retreived (#{response.status})")
+      @contact_id = ''
     end
 
     @contact_id.present?
