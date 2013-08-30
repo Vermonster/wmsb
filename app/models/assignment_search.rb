@@ -33,10 +33,12 @@ class AssignmentSearch
       response.success? ? response.body : nil
     end
 
-    if !response_body.nil?
+    if response_body.present?
       @assignments = JSON.parse(response_body).map do |assignment|
         BusAssignment.new(assignment, trip_flag)
       end
+    else
+      @assignments = []
     end
 
     return self

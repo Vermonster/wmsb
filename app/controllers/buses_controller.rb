@@ -9,7 +9,7 @@ class BusesController < ApplicationController
       flash.now.alert = search.errors.messages.values.flatten.first
     end
 
-    assignments = search.assignments || []
+    assignments = search.assignments
     @assignments = ActiveModel::ArraySerializer.new(assignments)
     respond_with(@assignments)
   end
