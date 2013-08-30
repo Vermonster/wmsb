@@ -44,6 +44,13 @@ describe Zonar do
 
       Zonar.bus_location('cacheme')
     end
+
+    it 'returns nil when an empty <currentlocations> object is returned' do
+      location = "<currentlocations>\n</currentlocations>"
+      stub_zonar_api [200, {}, location]
+
+      Zonar.bus_location('BUSID').should be_nil
+    end
   end
 
   describe '.bus_history' do

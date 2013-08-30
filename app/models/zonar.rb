@@ -24,7 +24,10 @@ module Zonar
     if !response_body.nil?
       response_attributes = Hash.from_xml(response_body)
       attributes = response_attributes['currentlocations']['asset']
-      BusLocation.new(attributes)
+
+      if attributes.present?
+        BusLocation.new(attributes)
+      end
     end
   end
 
