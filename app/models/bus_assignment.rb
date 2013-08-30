@@ -35,6 +35,10 @@ class BusAssignment
     @location ||= history.pop || Zonar.bus_location(bus_number)
   end
 
+  def gps_available?
+    location.present?
+  end
+
   def history
     @history ||= Zonar.bus_history(bus_number)
   end

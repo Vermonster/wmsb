@@ -69,4 +69,53 @@ feature 'View buses', js: true do
 
     page.should_not have_css '.select-students'
   end
+
+  it 'filters out buses without location information' do
+    assignments = [
+      bus_assignments_response(
+        BusNumber: '1',
+        StudentNo: '123',
+        parentfirstname: 'Ned',
+        parentlastname: 'Stark',
+        studentfirstname: 'Aria',
+        studentlastname: 'Stark'
+      ),
+      bus_assignments_response(
+        BusNumber: '2',
+        StudentNo: '456',
+        parentfirstname: 'Ned',
+        parentlastname: 'Stark',
+        studentfirstname: 'Sansa',
+        studentlastname: 'Stark'
+      )
+    ]
+
+    bus_one_location = bus_history_response(
+      lat: 42.01,
+      lng: -71.01,
+      time: Time.zone.local(2010, 10, 30, 10, 30)
+    )
+
+    bus_two_location = bus_history_response(
+      lat: 42.02,
+      lng: -71.02,
+      time: Time.zone.local(2010, 10, 30, 10, 45)
+    )
+
+    stub_assignments_api [200, {}, assignments.to_json]
+    stub_zonar_history_api [200, {}, [bus_one_location]]
+    stub_zonar_history_api [200, {}, []]
+    stub_zonar_api [200, {}, "<currentlocations>\n</currentlocations>"]
+
+    sign_in student_number: '123'
+
+    current_path.should eq buses_path
+
+    page.should have_selected_student 'Aria Stark'
+
+    # Should not render student name as a selector
+    page.should_not have_css '.select-students'
+
+    notifications.should have_content 'No GPS information available for Sansa Stark'
+  end
 end
