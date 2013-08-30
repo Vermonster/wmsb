@@ -50,10 +50,12 @@ module Zonar
       response.success? ? response.body : nil
     end
 
-    if !response_body.nil?
+    if response_body.present?
       response_attributes = JSON.parse(response_body)
       assets = response_attributes['pathevents']['assets']
       assets.nil? ? [] : assets[0]['events'].map { |event| BusPathPoint.new(event) }
+    else
+      []
     end
   end
 
