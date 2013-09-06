@@ -6,9 +6,8 @@
   background-size: contain;
   position: relative;
   z-index: 999;
-  margin: 0 auto;
+  margin: -58px auto 25px;
   left: -10px;
-  top: -58px;
 
   @media (max-width: $break-med) {
     left: 0;
@@ -16,7 +15,7 @@
 
   @media (max-width: $break-sm) {
     width: 265px;
-    top: -35px;
+    top: 25px;
     left: 0;
   }
 }
