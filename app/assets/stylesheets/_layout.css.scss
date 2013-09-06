@@ -179,9 +179,9 @@ body {
   .vermonster-logo {
     margin-right: 15px;
     float: left;
-    background-image: image-url('vermonster-logo.svg');
-    background-position: left top;
+    background: image-url('vermonster-logo.svg') left top;
     background-size: 123px, 34px;
+    background-repeat: no-repeat;
     width: 123px;
     height: 17px;
 
@@ -200,8 +200,8 @@ body {
 }
 
 .bps-logo {
-  background-image: image-url('bps-logo-2.svg');
-  background-position: left top;
+  background: image-url('bps-logo-2.svg') left top;
+  background-repeat: no-repeat;
   width: 126px;
   height: 70px;
   float: left;
