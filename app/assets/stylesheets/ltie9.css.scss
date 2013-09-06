@@ -1,0 +1,25 @@
+.lt-ie9 {
+  
+  .vermonster-logo {
+    background-image: image-url('vermonster-logo.png');
+  }
+  
+  .bps-logo {
+    background-image: image-url('bps-logo-2.png');
+  }
+  
+  #wmsb-logo {
+    background: image-url('logo.png');
+  }
+
+  .survey-content {
+    width: 150px;
+  }
+
+  .vermonster-text, .icon-mail, .icon-phone {
+    display: none;
+    @media (min-width: $break-med + 1) {
+      display: block;
+    }
+  }
+}
