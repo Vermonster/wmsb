@@ -20,21 +20,24 @@
   }
 }
 
-#login {
-  height: 412px;
-  width: 412px;
-  margin: -138px auto 0;
+.form-wrapper {
+  overflow: hidden;
+  margin: 0 auto 143px;
+  width: 425px;
+  padding: 0 0 160px;
+
+  @media(max-width: $break-sm-landscape) {
+    width: 85%;
+  }
+
+  @media(max-width: $break-med) {
+    padding: 0 0 90px;
+  }
+}
+
+form {
   text-align: center;
   position: relative;
-
-  @media (max-width: 412px) {
-    background: none;
-    width: auto;
-  }
-
-  .input.contact_id_family_name {
-    padding-top: 99px;
-  }
 
   label {
     display: block;

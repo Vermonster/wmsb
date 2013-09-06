@@ -1,7 +1,8 @@
 #header-login
 #wmsb-logo
-= simple_form_for @session, url: '/login', html: { id: 'login' } do |f|
-  = f.input :family_name
-  = f.input :student_number, type: 'number'
-  = f.input :date_of_birth, as: :date, start_year: 26.years.ago.year, end_year: 2.years.ago.year, order: [:month, :day, :year], include_blank: true
-  = f.button :submit, value: 'Sign In'
+.form-wrapper
+  = simple_form_for @session, url: '/login', html: { id: 'login' } do |f|
+    = f.input :family_name
+    = f.input :student_number, type: 'number'
+    = f.input :date_of_birth, as: :date, start_year: 26.years.ago.year, end_year: 2.years.ago.year, order: [:month, :day, :year], include_blank: true
+    = f.button :submit, value: 'Sign In'
