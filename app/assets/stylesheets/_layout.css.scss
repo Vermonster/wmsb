@@ -6,10 +6,7 @@ body {
   font-family: $font-e;
   margin: 0;
   padding: 0;
-
-  &.sessions {
-    background: $dk-blue;
-  }
+  background: $dk-blue;
 }
 
 #header, #header-login {
