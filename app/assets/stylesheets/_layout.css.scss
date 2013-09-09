@@ -64,7 +64,6 @@ body {
   width: 100%;
   background: $green;
   padding: 2px;
-  color: $green;
   text-align: center;
   overflow: hidden;
   .survey-content {
@@ -89,12 +88,11 @@ body {
     float: left;
     color: $dk-blue;
     position: relative;
-    .icon-right-open-mini {
-      position: absolute;
-      top: -5px;
-      right: -6px;
-    }
   }
+}
+
+.survey-link:hover {
+  color: darken($dk-blue, 5%);
 }
 
 .contact {

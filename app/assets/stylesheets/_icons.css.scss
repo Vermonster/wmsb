@@ -21,3 +21,11 @@
   text-decoration: none;
   color: $dk-blue;
 }
+
+.icon-right-open {
+  position: relative;
+  &:before {
+    font-size: 13px;
+    left: 4px;
+  }
+}
