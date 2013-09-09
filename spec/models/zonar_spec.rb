@@ -73,10 +73,10 @@ describe Zonar do
       point.last_updated_at.should eq time
     end
 
-    it 'returns nil if failed' do
+    it 'returns [] if failed' do
       stub_zonar_api [400, {}, "{}"]
 
-      Zonar.bus_history('BUSID').should be_nil
+      Zonar.bus_history('BUSID').should == []
 
       # Ensure cache miss
       Rails.cache.fetch('zonar.history.BUSID').should be_nil
