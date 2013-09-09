@@ -73,7 +73,7 @@ form {
 
   input.string {
     height: 20px;
-    width: 65%;
+    width: 87%;
     border: 2px #c6cccc solid;
     background: $grey;
     color: $dk-blue;
@@ -88,6 +88,16 @@ form {
 
   select {
     font-size: 1.1em;
+    margin: 0 1%;
+
+    @media (max-width: $break-sm-landscape) {
+      &:first-of-type, &:last-child {
+        width: 33%;
+      }
+      &:nth-child(3) {
+        width: 25%;
+      }
+    }
   }
 
   .btn {
@@ -96,7 +106,7 @@ form {
     text-align: center;
     font-size: 1em;
     height: 32px;
-    width: 74%;
+    width: 95%;
     color: $dk-blue;
     font-weight: 700;
     padding-bottom: .35em;
@@ -111,8 +121,9 @@ form {
       background: #3d94c4;
     }
 
-    @media (max-width: $break-med) {
-      width: 75%;
+    @media (max-width: $break-med-ipad) {
+      width: 98%;
+      margin-top: 8px;
     }
   }
 }
