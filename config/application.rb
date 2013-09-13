@@ -67,7 +67,7 @@ module Wmsb
     config.assets.paths << Rails.root.join('vendor', 'assets', 'font')
 
     # Precompile additional assets
-    config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.assets.precompile += %w( .svg .eot .woff .ttf faq.css)
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'

@@ -1,13 +1,33 @@
+@import 'variables';
+
+body {
+  background-color: $dk-blue;
+  color: $grey;
+  font-size: 1.1em;
+}
+
 dl {
-  font-family: Arial, sans-serif;
+  position: relative;
+  font-family: $font-h;
+  margin: 2em auto;
+  width: 475px;
+  @media (max-width: $break-sm-landscape) {
+    width: 90%;
+  }
 }
 
 dt {
-  font-size: 1.5em;
+  font-weight: 600;
 }
 
 dd {
-  font-size: 1.2em;
-  margin-bottom: 1.3em;
+  margin: .55em 0 1.75em 0;
+  a {
+    color: $grey;
+    &:hover {
+      text-decoration: none;
+      color: $lt-blue;
+    }
+  }
 }
 

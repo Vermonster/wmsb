@@ -134,7 +134,9 @@ span.faq-link {
   position: relative;
   display: block;
   a {
+    text-decoration: none;
     font-size: .875em;
+    font-weight: 700;
     color: $green;
 
     &:hover {
