@@ -31,3 +31,11 @@ dd {
   }
 }
 
+.bus-marker-image {
+  width: 51px;
+  height: 80px;
+  position: relative;
+  margin: 1.25em auto 2em;
+  background: image-url('bus-faq.png') no-repeat;
+  background-size: contain;
+}
