@@ -127,3 +127,19 @@ form {
     }
   }
 }
+
+span.faq-link {
+  margin-top: 1em;
+  text-align: center;
+  position: relative;
+  display: block;
+  a {
+    font-size: .875em;
+    color: $green;
+
+    &:hover {
+      color: $grey;
+      cursor: pointer;
+    }
+  }
+}
