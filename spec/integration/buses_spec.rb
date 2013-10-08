@@ -116,6 +116,6 @@ feature 'View buses', js: true do
     # Should not render student name as a selector
     page.should_not have_css '.select-students'
 
-    notifications.should have_content 'No GPS information available for Sansa Stark'
+    notifications.should have_content " no GPS information is currently available for Sansa Stark"
   end
 end

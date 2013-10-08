@@ -22,7 +22,7 @@ class BusesController < ApplicationController
 
     if gps_unavailable.any?
       names_of_missing = gps_unavailable.map(&:student_name).join(', ')
-      flash.now.alert = "No GPS information available for #{names_of_missing}"
+      flash.now.alert = "We're sorry, but no GPS information is currently available for #{names_of_missing}. Please call the transportation hotline at 617-635-9520."
     end
 
     @assignments = ActiveModel::ArraySerializer.new(gps_available)
