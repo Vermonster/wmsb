@@ -13,6 +13,15 @@ describe AssignmentSearch do
       [bus_assignment.stringify_keys].to_json
     end
 
+    before do
+      bus_one_location = bus_history_response(
+        lat: 42.01,
+        lng: -71.01,
+        time: Time.zone.local(2010, 10, 30, 10, 30)
+      )
+      stub_zonar_history_api [200, {}, [bus_one_location]]
+    end
+
     it 'returns the assignments belonging to the family identified by the credentials provided' do
       stub_assignments_api [200, {}, sample_bus_assignments_response]
 

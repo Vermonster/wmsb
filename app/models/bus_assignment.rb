@@ -19,6 +19,8 @@ class BusAssignment
   alias :student_first_name :studentfirstname
   alias :student_last_name :studentlastname
 
+  attr_reader :location, :history
+
   delegate :longitude, :latitude, :last_updated_at, to: :location
 
   def initialize(attributes, trip_flag)
@@ -27,14 +29,15 @@ class BusAssignment
     end
 
     self.trip_flag = trip_flag
+
+    if real_assignment?
+      @history = Zonar.bus_history(bus_number)
+      @location = @history.first || Zonar.bus_location(bus_number)
+    end
   end
 
   def student_name
     "#{student_first_name} #{student_last_name}"
-  end
-
-  def location
-    @location ||= history.pop || Zonar.bus_location(bus_number)
   end
 
   def real_assignment?
@@ -42,10 +45,6 @@ class BusAssignment
   end
 
   def gps_available?
-    location.present?
-  end
-
-  def history
-    @history ||= Zonar.bus_history(bus_number)
+    @location.present?
   end
 end

@@ -24,4 +24,8 @@ class BusAssignmentSerializer < ActiveModel::Serializer
   def destination
     TRIP_DIRECTIONS[object.trip_flag]
   end
+
+  def history
+    @history ||= object.history.any? ? object.history[1..-1] : []
+  end
 end
