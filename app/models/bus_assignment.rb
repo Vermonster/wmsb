@@ -1,6 +1,8 @@
 class BusAssignment
   include ActiveModel::SerializerSupport
 
+  FAKE_ASSIGNMENT_REGEX = /^9\d{3}$/
+
   attr_accessor :BusNumber,
                 :StudentNo,
                 :parentfirstname,
@@ -33,6 +35,10 @@ class BusAssignment
 
   def location
     @location ||= history.pop || Zonar.bus_location(bus_number)
+  end
+
+  def real_assignment?
+    !FAKE_ASSIGNMENT_REGEX.match(bus_number)
   end
 
   def gps_available?
