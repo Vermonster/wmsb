@@ -45,6 +45,14 @@ class AssignmentSearch
     return self
   end
 
+  def assignments_with_gps_data
+    assignments.select(&:gps_available?)
+  end
+
+  def assignments_without_gps_data
+    assignments.reject(&:gps_available?)
+  end
+
   alias :read_attribute_for_validation :send
 
   private

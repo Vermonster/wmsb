@@ -9,23 +9,12 @@ class BusesController < ApplicationController
       flash.now.alert = search.errors.messages.values.flatten.first
     end
 
-    gps_available = []
-    gps_unavailable = []
-
-    search.assignments.each do |assignment|
-      if assignment.gps_available?
-        gps_available << assignment
-      else
-        gps_unavailable << assignment
-      end
-    end
-
-    if gps_unavailable.any?
-      names_of_missing = gps_unavailable.map(&:student_name).join(', ')
+    if search.assignments_without_gps_data.any?
+      names_of_missing = search.assignments_without_gps_data.map(&:student_name).join(', ')
       flash.now.alert = "We're sorry, but no GPS information is currently available for #{names_of_missing}. Please call the transportation hotline at 617-635-9520."
     end
 
-    @assignments = ActiveModel::ArraySerializer.new(gps_available)
+    @assignments = ActiveModel::ArraySerializer.new(search.assignments_with_gps_data)
     respond_with(@assignments)
   end
 
