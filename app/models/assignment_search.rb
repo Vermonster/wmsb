@@ -34,7 +34,8 @@ class AssignmentSearch
     end
 
     if response_body.present?
-      @assignments = JSON.parse(response_body).map do |assignment|
+      assignments = JSON.parse(response_body)
+      @assignments = assignments.map do |assignment|
         BusAssignment.new(assignment, trip_flag)
       end
     else
