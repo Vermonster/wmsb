@@ -32,7 +32,7 @@ class BusAssignment
 
     if real_assignment?
       @history = Zonar.bus_history(bus_number)
-      @location = @history.first || Zonar.bus_location(bus_number)
+      @location = @history.last || Zonar.bus_location(bus_number)
     end
   end
 
