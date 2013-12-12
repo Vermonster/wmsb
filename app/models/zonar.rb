@@ -21,10 +21,7 @@ module Zonar
       target: bus_id
     )
 
-    response_body = Rails.cache.fetch(cache_key(:locations, bus_id), expires_in: 45, race_condition_ttl: 2) do
-      response = connection.get('interface.php', params)
-      response.success? ? response.body : nil
-    end
+    response_body = cached_response(:locations, bus_id, params)
 
     if !response_body.nil?
       response_attributes = Hash.from_xml(response_body)
@@ -50,10 +47,7 @@ module Zonar
       endtime: Time.zone.now.to_i
     )
 
-    response_body = Rails.cache.fetch(cache_key(:history, bus_id), expires_in: 45, race_condition_ttl: 2) do
-      response = connection.get('interface.php', params)
-      response.success? ? response.body : nil
-    end
+    response_body = cached_response(:history, bus_id, params)
 
     if response_body.present?
       response_attributes = JSON.parse(response_body)
@@ -64,9 +58,18 @@ module Zonar
     end
   end
 
+  def self.cached_response(endpoint, bus_id, params)
+    key = cache_key(endpoint, bus_id)
+
+    Rails.cache.fetch(key, expires_in: 45, race_condition_ttl: 2) do
+      response = connection.get('interface.php', params)
+      response.success? ? response.body : nil
+    end
+  end
+
   def self.cache_key(namespace, bus_id)
     "zonar.#{namespace}.#{bus_id}"
   end
 
-  private_class_method :default_params, :cache_key
+  private_class_method :default_params, :cache_key, :cached_response
 end
