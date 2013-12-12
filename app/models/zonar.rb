@@ -1,9 +1,14 @@
 module Zonar
   class << self
     attr_accessor :connection
+    attr_accessor :default_params
   end
 
   self.connection = Faraday.new(ENV['ZONAR_API'])
+  self.default_params = {
+    username: ENV['ZONAR_USERNAME'],
+    password: ENV['ZONAR_PASSWORD'],
+  }
 
   def self.bus_location(bus_id)
     params = default_params.merge(
@@ -57,13 +62,6 @@ module Zonar
     else
       []
     end
-  end
-
-  def self.default_params
-    @default_params ||= {
-      username: ENV['ZONAR_USERNAME'],
-      password: ENV['ZONAR_PASSWORD'],
-    }
   end
 
   def self.cache_key(namespace, bus_id)
