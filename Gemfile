@@ -26,10 +26,6 @@ group :production do
   gem 'newrelic_rpm'
 end
 
-group :development do
-  gem 'thin'
-end
-
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
