@@ -27,7 +27,7 @@ group :production do
 end
 
 group :test do
-  gem 'rspec-rails'
+  gem 'rspec-rails', '~> 2.14.0'
   gem 'capybara'
   gem 'poltergeist'
   gem 'timecop'
@@ -35,8 +35,5 @@ end
 
 group :development, :test do
   gem 'foreman'
-  gem 'jasmine'
-  gem 'jasminerice'
-  gem 'guard-jasmine'
   gem 'pry-rails'
 end
