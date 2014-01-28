@@ -4,8 +4,12 @@ rvm:
   - 2.0.0
   - 2.1.0
   - jruby-19mode
+install: 'bundle install --deployment -j 4'
 script:
   - "bundle exec rspec spec"
 branches:
   only:
     - master
+matrix:
+  allow_failures:
+    - rvm: jruby-19mode
