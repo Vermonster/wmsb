@@ -72,6 +72,8 @@ module Wmsb
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
 
-    config.middleware.use Rack::Deflater
+    unless RUBY_PLATFORM == 'java'
+      config.middleware.use Rack::Deflater
+    end
   end
 end
