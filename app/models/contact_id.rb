@@ -4,7 +4,9 @@ class ContactId
   include ActiveModel::Validations
 
   class_attribute :connection, instance_writer: false
-  self.connection = Faraday.new(ENV['BPS_API'])
+  self.connection = Faraday.new ENV['BPS_API'], ssl: {
+    ca_file: Rails.root.join('lib', 'certs', 'SVRIntlG3.crt').to_s
+  }
 
   attr_reader :contact_id, :errors, :family_name, :student_number
 
