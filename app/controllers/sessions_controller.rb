@@ -2,11 +2,11 @@ class SessionsController < ApplicationController
   before_filter :redirect_to_buses, only: :new
 
   def new
-    @session = ContactId.new
+    @session = contact_id_class.new
   end
 
   def create
-    @session = ContactId.new(params[:contact_id])
+    @session = contact_id_class.new(params[:contact_id])
 
     if @session.valid? && @session.authenticate!
       session[:contact_id]   = @session.contact_id
@@ -29,6 +29,14 @@ class SessionsController < ApplicationController
   end
 
   private
+
+  def contact_id_class
+    if Rails.env.development?
+      FakeContactId
+    else
+      ContactId
+    end
+  end
 
   def redirect_to_buses
     if session_exists? && !session_expired?
