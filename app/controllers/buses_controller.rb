@@ -3,7 +3,7 @@ class BusesController < ApplicationController
   before_filter :authenticate!
 
   def index
-    search = AssignmentSearch.find(session[:contact_id])
+    search = assignment_class.find(session[:contact_id])
 
     if search.errors.any?
       flash.now.alert = search.errors.messages.values.flatten.first
@@ -34,6 +34,14 @@ class BusesController < ApplicationController
         format.html { redirect_to :root, alert: 'You need to sign in first.' }
         format.json { head 401 }
       end
+    end
+  end
+
+  def assignment_class
+    if Rails.env.development?
+      FakeAssignmentSearch
+    else
+      AssignmentSearch
     end
   end
 end

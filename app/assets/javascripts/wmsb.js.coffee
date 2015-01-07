@@ -31,6 +31,8 @@ $ ->
     view = new Wmsb.Views.MapView
       collection: assignments
       el: $ 'body'
+    console.log assignments
+    console.log 'after render it'
 
     if view.collection.current()?
       view.render()

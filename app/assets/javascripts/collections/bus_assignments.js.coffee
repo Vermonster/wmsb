@@ -4,4 +4,6 @@ Wmsb.Collections.BusAssignments = Backbone.Collection.extend
 
   current: ->
     @find (assignment) ->
-      assignment.get('token') is window.location.hash.substring(1)
+      true
+      # TODO: PLEASE DO NOT LEAVE THIS
+      # assignment.get('token') is window.location.hash.substring(1)
