@@ -25,18 +25,13 @@
       %a.icon-cancel-circle{href: 'javascript:void(0)'}
     = yield
     .footer
-      .survey
-        .survey-content
-          %a.survey-link.small-text{href: "http://www.surveymonkey.com/s/TKLNZHV", target: "_blank"}
-            Take our survey
-            %span.icon-right-open
-      %a.bps-logo{href: "http://www.bostonpublicschools.org", target: "_blank"}
+      %a.bps-logo{href: "#{t('application.school_system_url')}", target: "_blank"}
       .contact
-        %a.small-text{href: "http://www.bostonpublicschools.org/transportation", target: "_blank"} Boston Public Schools
-        %a.icon-contact.icon-mail{href: "mailto:schoolbus@bostonpublicschools.org"}
-        %a.small-text.text-contact{href: "mailto:schoolbus@bostonpublicschools.org"} schoolbus@bostonpublicschools.org
-        %a.icon-contact.icon-phone{href: "tel:617-635-9520"}
-        .small-text.text-contact 617-635-9520
+        %a.small-text{href: "#{t('application.school_system_url')}", target: "_blank"}=t('application.school_system_name')
+        %a.icon-contact.icon-mail{href: "#{t('application.school_system_name_url')}"}
+          %a.small-text.text-contact{href: "mailto:#{t('application.school_system_email')}"}=t('application.school_system_email')
+        %a.icon-contact.icon-phone{href: "tel:#{t('application.school_system_phone_number')}"}
+        .small-text.text-contact=t('application.school_system_phone_number')
       .credit
         %p.small-text Built by
         %a.small-text.vermonster-text{href: "http://www.vermonster.com/", target: "_blank"} Vermonster

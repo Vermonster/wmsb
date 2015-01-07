@@ -2,6 +2,11 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  application:
+    school_system_name: My Awesome Example School
+    school_system_url: http://www.example.com
+    school_system_email: schoolbus@example.com
+    school_system_phone_number: 222-555-5555
   activemodel:
     attributes:
       contact_id:
