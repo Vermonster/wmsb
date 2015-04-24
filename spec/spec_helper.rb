@@ -9,7 +9,11 @@ require 'capybara/poltergeist'
 # in spec/support/ and its subdirectories.
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
-Capybara.javascript_driver = :poltergeist
+Capybara.register_driver :poltergeist_test do |app|
+  Capybara::Poltergeist::Driver.new(app, phantomjs_options: ['--ignore-ssl-errors=yes'])
+end
+
+Capybara.javascript_driver = :poltergeist_test
 Capybara.ignore_hidden_elements = true
 
 RSpec.configure do |config|
